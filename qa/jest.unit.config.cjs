@@ -1,4 +1,3 @@
-/** @type {import('jest').Config} */
 module.exports = {
   rootDir: '..',
   moduleFileExtensions: ['js', 'json', 'ts'],

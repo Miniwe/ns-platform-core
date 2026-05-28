@@ -1,0 +1,2 @@
+export const ADVANCED_CACHE_OPTIONS = Symbol('ADVANCED_CACHE_OPTIONS');
+export const REDIS_CLIENT = Symbol('REDIS_CLIENT');

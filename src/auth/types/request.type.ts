@@ -9,6 +9,12 @@ export type HttpRequestLike<TUser = RequestUser> = {
   query?: unknown;
   params?: unknown;
   body?: unknown;
+  connection?: {
+    remoteAddress: string;
+  };
+  route?: {
+    path: string
+  };
 };
 
 export type PlatformRequest<TUser = RequestUser> = HttpRequestLike<TUser>;

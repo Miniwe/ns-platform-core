@@ -10,7 +10,7 @@ import { PERMISSIONS_KEY } from '../constants';
 import type { AuthenticatedRequest } from '../types';
 import { PermissionRequirementSchema } from '../decorators';
 
-const PermissionItemSchema = z.object({
+export const PermissionItemSchema = z.object({
   resource: z.string().min(1),
   action: z.string().min(1),
 });
@@ -24,6 +24,8 @@ const PermissionAwareUserSchema = z.object({
   roles: z.array(RoleSchema).default([]),
   permissions: z.array(PermissionItemSchema).default([]),
 });
+
+export type PermissionItem = z.infer<typeof PermissionItemSchema>;
 
 type PermissionRequirement = z.infer<typeof PermissionRequirementSchema>;
 type PermissionAwareUser = z.infer<typeof PermissionAwareUserSchema>;
