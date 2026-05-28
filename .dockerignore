@@ -1,0 +1,49 @@
+# VCS
+.git
+.gitignore
+
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+dist
+build
+coverage
+**/dist
+**/build
+**/coverage
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode
+.idea
+.DS_Store
+
+# Test / reports / artifacts
+allure-results
+allure-report
+dev/repomix
+dump_*.sql
+
+# Frontend / backend caches
+**/.vite
+**/.cache
+**/.turbo
+**/.next
+
+# Docker leftovers
+docker-data
+tmp
+temp

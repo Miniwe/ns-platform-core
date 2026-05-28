@@ -1,0 +1,26 @@
+import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
+
+@Injectable()
+export class RoleGuard implements CanActivate {
+  constructor(private reflector: Reflector) {}
+
+  canActivate(context: ExecutionContext): boolean {
+    const requiredRoles = this.reflector.get<string[]>('roles', context.getHandler());
+
+    if (!requiredRoles) {
+      return true;
+    }
+
+    const request = context.switchToHttp().getRequest();
+    const userRoles = request.user.roles?.map((role: any) => role.name) || [];
+
+    const hasRole = requiredRoles.some(role => userRoles.includes(role));
+
+    if (!hasRole) {
+      throw new ForbiddenException('Недостаточно прав для выполнения этой операции');
+    }
+
+    return true;
+  }
+}
