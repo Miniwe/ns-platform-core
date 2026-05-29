@@ -1,0 +1,1 @@
+{"uuid":"9697102f-e77a-58ba-9f05-e3a841651db1","name":"BaseService findAll wraps repository errors into BadRequestException (0)","children":["109bb92a-510c-497c-a76f-fcdf50825101"]}

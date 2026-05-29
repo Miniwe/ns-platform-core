@@ -1,0 +1,1 @@
+{"uuid":"29bdc8ca-83b3-571a-9074-2376b4983c41","name":"RoleGuard должен бросать ForbiddenException, если user.roles невалиден (0)","children":["7ca04899-f302-493d-9d60-e57dfadf8d8e"]}

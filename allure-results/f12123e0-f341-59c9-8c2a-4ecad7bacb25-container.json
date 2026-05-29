@@ -1,0 +1,1 @@
+{"uuid":"f12123e0-f341-59c9-8c2a-4ecad7bacb25","name":"PermissionGuard должен бросать ForbiddenException, если user.roles невалиден (0)","children":["2b46a1c7-447f-42a3-9500-cb4c579d9e48"]}
