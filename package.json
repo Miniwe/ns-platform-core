@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reusable NestJS platform core for backend services",
   "private": true,
   "keywords": [
@@ -112,7 +112,8 @@
     "report:generate": "allure generate allure-results -o allure-report --clean",
     "docs": "typedoc",
     "knip": "npx knip",
-    "prepublishOnly": "npm run clean && npm run lint && npm run test:dependencies && npm run test:all && npm run build"
+    "prepublishOnly": "npm run clean && npm run lint && npm run test:dependencies && npm run test:all && npm run build",
+    "prepare": "husky install"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
@@ -168,6 +169,7 @@
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.11.0",
     "typescript": "^5.8.0",
-    "typescript-eslint": "^8.60.0"
+    "typescript-eslint": "^8.60.0",
+    "husky": "^8.0.0"
   }
 }

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 1. Изменяем версию только в файлах package.json и package-lock.json (без создания Git-коммита)
+npm version patch --no-git-tag-version
+
+# 2. Добавляем измененные package.json и package-lock.json в текущий коммит
+git add package.json package-lock.json

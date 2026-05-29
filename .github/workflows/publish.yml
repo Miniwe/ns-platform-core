@@ -35,6 +35,7 @@ jobs:
           npm run lint
           npm run test:dependencies
           npm run test
+          npm version patch --no-git-tag-version
           npm run build
 
       - name: Publish to GitHub Packages

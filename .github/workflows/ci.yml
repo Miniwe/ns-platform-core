@@ -27,6 +27,3 @@ jobs:
 
       - name: Run Tests
         run: npm run test
-
-      - name: Bump version
-        run: npm version patch
