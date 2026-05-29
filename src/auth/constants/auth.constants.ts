@@ -1,3 +1,2 @@
-export const IS_PUBLIC_KEY = 'isPublic';
-export const PERMISSIONS_KEY = 'permissions';
-export const RESOLVE_RESOURCE_KEY = 'resolveResource';
+export const IS_PUBLIC_KEY = Symbol('IS_PUBLIC_KEY');
+export const RESOLVE_RESOURCE_KEY = Symbol('RESOLVE_RESOURCE_KEY');

@@ -100,6 +100,7 @@
     "@nestjs/cache-manager": "^3.1.2",
     "@nestjs/jwt": "^11.0.2",
     "@nestjs/passport": "^11.0.5",
+    "allure": "^3.8.2",
     "bullmq": "^5.76.8",
     "cache-manager": "^7.2.8",
     "dataloader": "^2.2.3",
@@ -113,6 +114,7 @@
     "@testcontainers/redis": "^10.28.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.12.3",
+    "allure-commandline": "^2.42.0",
     "allure-jest": "^3.9.0",
     "dependency-cruiser": "^17.4.0",
     "fastify": "^5.8.5",
@@ -125,6 +127,8 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0",
     "typescript": "^5.8.0"
   },
   "publishConfig": {

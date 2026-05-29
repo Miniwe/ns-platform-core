@@ -1,27 +1,20 @@
-module.exports = {
-  rootDir: '..',
-  moduleFileExtensions: ['js', 'json', 'ts'],
-  testEnvironment: 'node',
-  roots: ['<rootDir>/src'],
+const baseConfig = require('./jest.base.cjs');
+
+/** @type {import('jest').Config} */
+const config = {
+  ...baseConfig,
+  displayName: 'unit',
   testMatch: ['**/*.spec.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  transform: {
-    '^.+\\.ts$': [
-      'ts-jest',
-      {
-        tsconfig: '<rootDir>/tsconfig.json',
-      },
-    ],
-  },
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-  },
-  collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.spec.ts',
-    '!src/**/*.module.ts',
-    '!src/**/index.ts',
-    '!src/**/*.d.ts',
-  ],
   coverageDirectory: '<rootDir>/coverage/unit',
+  coverageThreshold: {
+    global: {
+      lines: 85,
+      functions: 85,
+      branches: 80,
+      statements: 85,
+    },
+  },
 };
+
+module.exports = config;

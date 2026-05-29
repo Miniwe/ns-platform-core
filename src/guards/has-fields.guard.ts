@@ -1,4 +1,11 @@
-export function hasFields<T>(obj: any, keys: (keyof T)[]): obj is T {
-  if (typeof obj !== 'object' || obj === null) return false;
-  return keys.every((key) => key in obj);
+export function HasFieldsGuard<T extends object>(
+  obj: unknown,
+  keys: readonly (keyof T)[],
+): obj is T {
+  if (typeof obj !== 'object' || obj === null) {
+    return false;
+  }
+
+  const record = obj as Record<PropertyKey, unknown>;
+  return keys.every((key) => key in record);
 }

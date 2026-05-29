@@ -1,21 +1,21 @@
 import { z } from 'zod';
-import { RequestUserSchema } from './request-user.schema';
+import { RequestUserSchema } from '@/security';
 
 export const AuthTokensSchema = z.object({
   accessToken: z.string().describe('JWT access token'),
   refreshToken: z.string().optional().describe('JWT refresh token'),
   tokenType: z.literal('Bearer').describe('Token type'),
   expiresIn: z.number().int().positive().describe('Access token lifetime in seconds'),
-  refreshExpiresIn: z.number().int().positive().optional().describe('Refresh token lifetime in seconds'),
+  refreshExpiresIn: z
+    .number()
+    .int()
+    .positive()
+    .optional()
+    .describe('Refresh token lifetime in seconds'),
 });
 
-export const AuthSessionSchema = z.object({
+export const AuthSessionSchema = AuthTokensSchema.extend({
   user: RequestUserSchema.describe('Authenticated user'),
-  accessToken: z.string().describe('JWT access token'),
-  refreshToken: z.string().optional().describe('JWT refresh token'),
-  tokenType: z.literal('Bearer').describe('Token type'),
-  expiresIn: z.number().int().positive().describe('Access token lifetime in seconds'),
-  refreshExpiresIn: z.number().int().positive().optional().describe('Refresh token lifetime in seconds'),
 });
 
 export type AuthTokens = z.infer<typeof AuthTokensSchema>;

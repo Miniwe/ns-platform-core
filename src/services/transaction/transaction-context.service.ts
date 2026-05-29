@@ -1,32 +1,19 @@
-import { AsyncLocalStorage } from 'async_hooks';
 import { EntityManager } from 'typeorm';
+import { AppContext } from '@/context';
 
 export class TransactionContext {
-  private static storage = new AsyncLocalStorage<EntityManager>();
-
-  // Базовый менеджер (глобальный), используемый вне транзакционных контекстов (для обычных SELECT)
   private static fallbackManager: EntityManager | null = null;
 
-  /**
-   * Инициализирует глобальный менеджер при старте приложения
-   */
   static setFallbackManager(manager: EntityManager): void {
     this.fallbackManager = manager;
   }
 
-  /**
-   * Проверяет, запущена ли трансляция в текущем контексте (потоке)
-   */
   static hasActiveTransaction(): boolean {
-    return !!this.storage.getStore();
+    return !!AppContext.getStore()?.transactionManager;
   }
 
-  /**
-   * Возвращает текущий активный менеджер транзакции.
-   * Если метод вызван вне @Transactional(), возвращает обычный менеджер для безопасных чтений.
-   */
   static getManager(): EntityManager {
-    const txManager = this.storage.getStore();
+    const txManager = AppContext.getStore()?.transactionManager;
     if (txManager) {
       return txManager;
     }
@@ -41,10 +28,15 @@ export class TransactionContext {
     );
   }
 
-  /**
-   * Запускает функцию внутри изолированного контекста хранилища
-   */
   static run<T>(manager: EntityManager, fn: () => Promise<T>): Promise<T> {
-    return this.storage.run(manager, fn);
+    const current = AppContext.getStore() ?? {};
+
+    return AppContext.run(
+      {
+        ...current,
+        transactionManager: manager,
+      },
+      fn,
+    );
   }
 }

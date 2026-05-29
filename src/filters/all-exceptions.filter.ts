@@ -1,40 +1,53 @@
-import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  ExceptionFilter,
+  Catch,
+  ArgumentsHost,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { ErrorHandlingService } from '@/services';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   constructor(private readonly errorService: ErrorHandlingService) {}
 
-  catch(exception: HttpException, host: ArgumentsHost) {
+  catch(exception: unknown, host: ArgumentsHost): void {
     const context = this.errorService.extractFromHost(host);
-
-    // Логируем ошибку во внутреннюю систему мониторинга бэкенда
     this.errorService.handleError(exception, context, false);
 
-    const ctx = host.switchToHttp();
-    const response = ctx.getResponse();
+    const response = host.switchToHttp().getResponse();
 
     const status =
-      exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
+      exception instanceof HttpException
+        ? exception.getStatus()
+        : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    // Формируем строгий StandardErrorDto ответ для фронтенда
     let message: string | string[] = 'Internal Server Error';
-    let code = 'INTERNAL_ERROR';
-    let errors: Record<string, unknown> | undefined = undefined;
+    let code = this.getErrorCodeByStatus(status);
+    let errors: Record<string, unknown> | undefined;
 
     if (exception instanceof HttpException) {
       const res = exception.getResponse();
+
       if (typeof res === 'string') {
         message = res;
       } else if (typeof res === 'object' && res !== null) {
-        message = (res as any).message ?? exception.message;
-        code = (res as any).code ?? this.getErrorCodeByStatus(status);
-        errors = (res as any).errors;
+        const typed = res as {
+          message?: string | string[];
+          code?: string;
+          errors?: Record<string, unknown>;
+        };
+
+        message = typed.message ?? exception.message;
+        code = typed.code ?? this.getErrorCodeByStatus(status);
+        errors = typed.errors;
+      } else {
+        message = exception.message;
       }
-      code ??= this.getErrorCodeByStatus(status);
     }
 
     response.status(status).send({
+      statusCode: status,
       message,
       code,
       ...(errors ? { errors } : {}),

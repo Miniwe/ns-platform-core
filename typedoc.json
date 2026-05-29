@@ -1,16 +1,12 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPointStrategy": "packages",
-  "entryPoints": ["./src"],
   "out": "./docs",
   "plugin": ["typedoc-plugin-markdown"],
+  "entryPoints": ["./src/index.ts"],
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeInternal": true,
   "excludeExternals": true,
   "readme": "README.md",
-  "hideGenerator": true,
-  "packageOptions": {
-    "entryPoints": ["src"]
-  }
+  "hideGenerator": true
 }

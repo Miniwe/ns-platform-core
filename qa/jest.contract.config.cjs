@@ -1,11 +1,11 @@
-import type { Config } from 'jest';
-import baseConfig from './jest.base.cjs';
+const baseConfig = require('./jest.base.cjs');
 
-const config: Config = {
+/** @type {import('jest').Config} */
+const config = {
   ...baseConfig,
   displayName: 'contracts',
-  testMatch: ['<rootDir>/test/contracts/**/*.spec.ts'],
+  testMatch: ['**/*.spec.ts'],
   coverageDirectory: '<rootDir>/coverage/contracts'
 };
 
-export default config;
+module.exports = config;

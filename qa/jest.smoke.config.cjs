@@ -1,12 +1,13 @@
-import type { Config } from 'jest';
-import baseConfig from './jest.base.cjs';
+const baseConfig = require('./jest.base.cjs');
 
-const config: Config = {
+/** @type {import('jest').Config} */
+const config = {
   ...baseConfig,
   displayName: 'smoke',
-  testMatch: ['<rootDir>/test/smoke/**/*.spec.ts'],
+  testMatch: ['<rootDir>/test/smoke/**/*.smoke-spec.ts'],
+  coverageDirectory: '<rootDir>/coverage/smoke',
   testTimeout: 120000,
-  maxWorkers: 1
+  maxWorkers: 1,
 };
 
-export default config;
+module.exports = config;

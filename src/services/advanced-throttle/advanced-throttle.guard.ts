@@ -19,75 +19,24 @@
  * ```
  */
 
-import {
-  Injectable,
-  CanActivate,
-  ExecutionContext,
-  HttpException,
-  HttpStatus,
-  SetMetadata,
-} from '@nestjs/common';
+import { Injectable, CanActivate, ExecutionContext,
+         HttpException, HttpStatus, SetMetadata, Inject, Optional } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-
 import { AdvancedCacheService } from '@/services';
-import { HttpRequestLike } from '@/auth';
+import type { HttpRequestLike } from '@/security';
+import { THROTTLE_MODULE_OPTIONS, ThrottleModuleOptions } from './types'; // вынесем интерфейс
+import { RateLimitConfig } from './domain'; // вынесем интерфейс
 
-/**
- * Configuration options for rate-limiting behavior.
- *
- * @interface RateLimitConfig
- * @property {number} windowMs - Time window for HttpRequestLike counting in milliseconds.
- * @property {number} max - Maximum number of allowed Request per window.
- * @property {string} message - Error message for limit violations.
- * @property {boolean} [skipSuccessfulRequest] - Optional flag to ignore successful Request (not implemented yet).
- * @property {boolean} [skipFailedRequest] - Optional flag to ignore failed Request (not implemented yet).
- * @property {(req: HttpRequestLike) => string} [keyGenerator] - Optional function for custom key generation per HttpRequestLike.
- */
-export interface RateLimitConfig {
-  windowMs: number;
-  max: number;
-  message: string;
-  skipSuccessfulRequest?: boolean;
-  skipFailedRequest?: boolean;
-  keyGenerator?: (req: HttpRequestLike) => string;
-}
-
-/**
- * Decorator to configure custom rate-limiting settings for specific route handlers.
- *
- * @param {RateLimitConfig} config - Rate limit configuration to attach via metadata.
- * @returns {MethodDecorator} - A NestJS metadata decorator.
- */
-export const RateLimit = (config: RateLimitConfig) => SetMetadata('rateLimit', config);
-
-/**
- * AdvancedThrottleGuard
- *
- * Implements a dynamic and cached rate-limiting mechanism that integrates with
- * NestJS HttpRequestLike lifecycle. Relies on Redis or similar key-value store for
- * HttpRequestLike counting and TTL-based expiration.
- *
- * Key features:
- * - Per-HttpRequestLike key generation (default or custom)
- * - Automatic TTL handling for counters
- * - Adds standard HTTP rate-limit headers:
- *   - `X-RateLimit-Limit`
- *   - `X-RateLimit-Remaining`
- *   - `X-RateLimit-Reset`
- *
- * Throws `HttpException` with `429 Too Many Request` status if limit is exceeded.
- */
 @Injectable()
 export class AdvancedThrottleGuard implements CanActivate {
-  /** Default limiting window: 15 minutes */
   private readonly defaultWindowMs = 15 * 60 * 1000;
-
-  /** Default maximum number of Request allowed within the window */
   private readonly defaultMax = 100;
 
   constructor(
-    private reflector: Reflector,
-    private cacheService: AdvancedCacheService,
+    private readonly reflector: Reflector,
+    private readonly cacheService: AdvancedCacheService,
+    @Optional() @Inject(THROTTLE_MODULE_OPTIONS)
+    private readonly options: ThrottleModuleOptions = {},
   ) {}
 
   /**
@@ -153,20 +102,20 @@ export class AdvancedThrottleGuard implements CanActivate {
    * Default behavior combines client IP, authenticated user ID (if any),
    * and route path. The logic can be overridden via `keyGenerator` function.
    *
-   * @param {HttpRequestLike} request - Current incoming HTTP HttpRequestLike.
+   * @param {HttpRequestLike} HttpRequestLike - Current incoming HTTP HttpRequestLike.
    * @param {(req: HttpRequestLike) => string} [keyGenerator] - Optional custom key generator.
    * @returns {string} Unique key used for counting Request.
    */
-  private generateKey(request: HttpRequestLike, keyGenerator?: (req: HttpRequestLike) => string): string {
+  private generateKey(HttpRequestLike: HttpRequestLike, keyGenerator?: (req: HttpRequestLike) => string): string {
     if (keyGenerator) {
-      return `ratelimit:${keyGenerator(request)}`;
+      return `ratelimit:${keyGenerator(HttpRequestLike)}`;
     }
 
-    const ip = request.ip || request?.connection?.remoteAddress || 'unknown';
+    const ip = HttpRequestLike.ip || HttpRequestLike?.connection?.remoteAddress || 'unknown';
     // TODO: remove `@ts-ignore` when HttpRequestLike.user typing is standardized
     // @ts-ignore
-    const userId = request.user?.id || 'anonymous';
+    const userId = HttpRequestLike.user?.id || 'anonymous';
 
-    return `ratelimit:${ip}:${userId}:${request.route?.path || 'unknown'}`;
+    return `ratelimit:${ip}:${userId}:${HttpRequestLike.route?.path || 'unknown'}`;
   }
 }

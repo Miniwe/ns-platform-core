@@ -5,6 +5,7 @@ import { Redis } from 'ioredis';
 
 import { CacheOptions, CacheOptionsSchema } from './schemas/advanced-cache.schema';
 import { ErrorHandlingService } from '../error-handling/error-handling.service';
+import { REDIS_CLIENT } from './constants';
 
 @Injectable()
 export class AdvancedCacheService implements OnModuleDestroy {
@@ -12,7 +13,7 @@ export class AdvancedCacheService implements OnModuleDestroy {
 
   constructor(
     @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
-    @Inject('REDIS_CLIENT') private readonly redis: Redis,
+    @Inject(REDIS_CLIENT) private readonly redis: Redis,
     private readonly errorHandlingService: ErrorHandlingService,
   ) {}
 
@@ -142,7 +143,7 @@ export class AdvancedCacheService implements OnModuleDestroy {
     await this.redis.quit();
   }
 
-  private getTagKey(tag: string): string {
+  private getTagKey(tag: string | Symbol): string {
     return `tag:${tag}`;
   }
 

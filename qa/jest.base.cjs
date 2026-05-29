@@ -1,6 +1,7 @@
-import  { Config } from 'jest';
+const { Config } = require('jest');
 
-const baseConfig: Config = {
+/** @type {import('jest').Config} */
+const baseConfig = {
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: '..',
   testEnvironment: 'node',
@@ -23,4 +24,4 @@ const baseConfig: Config = {
   ]
 };
 
-export default baseConfig;
+module.exports = baseConfig;
