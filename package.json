@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable NestJS platform core for backend services",
   "private": true,
   "keywords": [
