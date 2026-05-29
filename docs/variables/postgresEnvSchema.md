@@ -8,4 +8,4 @@
 
 > `const` **postgresEnvSchema**: `ZodObject`\<\{ `POSTGRES_DB`: `ZodString`; `POSTGRES_HOST`: `ZodString`; `POSTGRES_PASSWORD`: `ZodString`; `POSTGRES_PORT`: `ZodCoercedNumber`\<`unknown`\>; `POSTGRES_USER`: `ZodString`; \}, `$strip`\>
 
-Defined in: [src/database/typeorm/postgres.config.ts:3](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/postgres.config.ts#L3)
+Defined in: [src/database/typeorm/postgres.config.ts:3](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/postgres.config.ts#L3)

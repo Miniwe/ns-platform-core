@@ -8,4 +8,4 @@
 
 > `const` **DecimalTransportSchema**: `ZodString`
 
-Defined in: [src/schemas/decimal/decimal.transport.schema.ts:3](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/schemas/decimal/decimal.transport.schema.ts#L3)
+Defined in: [src/schemas/decimal/decimal.transport.schema.ts:3](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/schemas/decimal/decimal.transport.schema.ts#L3)

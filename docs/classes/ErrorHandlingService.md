@@ -6,7 +6,7 @@
 
 # Class: ErrorHandlingService
 
-Defined in: [src/services/error-handling/error-handling.service.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/error-handling/error-handling.service.ts#L5)
+Defined in: [src/services/error-handling/error-handling.service.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/error-handling/error-handling.service.ts#L5)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [src/services/error-handling/error-handling.service.ts:5](https://gi
 
 > **extractFromHost**(`host`): `object`
 
-Defined in: [src/services/error-handling/error-handling.service.ts:66](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/error-handling/error-handling.service.ts#L66)
+Defined in: [src/services/error-handling/error-handling.service.ts:66](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/error-handling/error-handling.service.ts#L66)
 
 Извлечение данных из HTTP запроса для контекста
 
@@ -92,7 +92,7 @@ Defined in: [src/services/error-handling/error-handling.service.ts:66](https://g
 
 > **handleError**(`error`, `context?`, `rethrow?`): `void`
 
-Defined in: [src/services/error-handling/error-handling.service.ts:14](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/error-handling/error-handling.service.ts#L14)
+Defined in: [src/services/error-handling/error-handling.service.ts:14](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/error-handling/error-handling.service.ts#L14)
 
 Основной метод обработки ошибок.
 
@@ -172,7 +172,7 @@ Defined in: [src/services/error-handling/error-handling.service.ts:14](https://g
 
 > **logInfo**(`message`, `context?`): `void`
 
-Defined in: [src/services/error-handling/error-handling.service.ts:52](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/error-handling/error-handling.service.ts#L52)
+Defined in: [src/services/error-handling/error-handling.service.ts:52](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/error-handling/error-handling.service.ts#L52)
 
 #### Parameters
 
@@ -240,7 +240,7 @@ Defined in: [src/services/error-handling/error-handling.service.ts:52](https://g
 
 > **logWarn**(`message`, `context?`): `void`
 
-Defined in: [src/services/error-handling/error-handling.service.ts:41](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/error-handling/error-handling.service.ts#L41)
+Defined in: [src/services/error-handling/error-handling.service.ts:41](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/error-handling/error-handling.service.ts#L41)
 
 #### Parameters
 

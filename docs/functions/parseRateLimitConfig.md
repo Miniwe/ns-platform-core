@@ -8,7 +8,7 @@
 
 > **parseRateLimitConfig**(`input`): `object`
 
-Defined in: src/services/advanced-throttle/domain/advanced-throttle.schema.ts:47
+Defined in: [src/services/advanced-throttle/domain/advanced-throttle.schema.ts:47](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/domain/advanced-throttle.schema.ts#L47)
 
 Парсит и валидирует конфиг с понятными ошибками.
 Используется в @RateLimit() decorator для fail-fast на старте.

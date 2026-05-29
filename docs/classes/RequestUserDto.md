@@ -6,7 +6,7 @@
 
 # Class: RequestUserDto
 
-Defined in: [src/auth/models/request-user.model.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/models/request-user.model.ts#L4)
+Defined in: [src/auth/models/request-user.model.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/models/request-user.model.ts#L4)
 
 ## Extends
 
@@ -34,7 +34,7 @@ Defined in: node\_modules/nestjs-zod/dist/dto-BwNEQwoy.d.cts:33
 
 > **id**: `number`
 
-Defined in: src/security/schemas/request-user.schema.ts:6
+Defined in: [src/security/schemas/request-user.schema.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/security/schemas/request-user.schema.ts#L6)
 
 #### Inherited from
 
@@ -46,7 +46,7 @@ Defined in: src/security/schemas/request-user.schema.ts:6
 
 > **roles**: `object`[]
 
-Defined in: src/security/schemas/request-user.schema.ts:8
+Defined in: [src/security/schemas/request-user.schema.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/security/schemas/request-user.schema.ts#L8)
 
 #### description
 
@@ -70,7 +70,7 @@ Defined in: src/security/schemas/request-user.schema.ts:8
 
 > **uuid**: `string`
 
-Defined in: src/security/schemas/request-user.schema.ts:7
+Defined in: [src/security/schemas/request-user.schema.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/security/schemas/request-user.schema.ts#L7)
 
 #### Inherited from
 

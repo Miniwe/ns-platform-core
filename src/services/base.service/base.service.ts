@@ -1,3 +1,4 @@
+import DataLoader from 'dataloader';
 import {
   Injectable,
   NotFoundException,
@@ -18,7 +19,9 @@ import {
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 import { ErrorContext, ErrorHandlingService } from '../error-handling';
 import { TransactionContext } from '../transaction';
-import DataLoader = require('dataloader');
+
+jest.mock('dataloader');
+
 /**
  * Контракт для сервисов, поддерживающих конвертацию внешнего UUID во внутренний ID
  */

@@ -8,7 +8,7 @@
 
 > **TypeOrmBuildOptions** = `object`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:12](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L12)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:12](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L12)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:12](https://github.com
 
 > `optional` **autoLoadEntities?**: `boolean`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:18](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L18)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:18](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L18)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:18](https://github.com
 
 > `optional` **entities?**: `string`[]
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:13](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L13)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:13](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L13)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:13](https://github.com
 
 > `optional` **logging?**: `boolean`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:15](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L15)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:15](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L15)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:15](https://github.com
 
 > `optional` **migrations?**: `string`[]
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:14](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L14)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:14](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L14)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:14](https://github.com
 
 > `optional` **migrationsRun?**: `boolean`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:17](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L17)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:17](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L17)
 
 ***
 
@@ -56,4 +56,4 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:17](https://github.com
 
 > `optional` **synchronize?**: `boolean`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:16](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L16)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:16](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L16)

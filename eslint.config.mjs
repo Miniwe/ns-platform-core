@@ -82,7 +82,6 @@ export default tseslint.config(
       ...reactRefresh.configs.vite.rules,
     },
   },
-
   {
     files: ['backend/**/*.ts'],
     languageOptions: {
@@ -102,7 +101,19 @@ export default tseslint.config(
       'no-console': 'off',
     },
   },
-
+  {
+    files: ["**/*.spec.ts", "**/*.test.ts"],
+    languageOptions: {
+      parser: tseslint.parser,
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+    },
+    rules: {
+      // Отключаем ошибку/предупреждение на использование any
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  },
   {
     files: [
       '**/*.{js,mjs,jsx}',

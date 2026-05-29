@@ -8,7 +8,7 @@
 
 > **currentUserFactory**(`data`, `ctx`): `string` \| `number` \| `object`[] \| \{ `id`: `number`; `roles`: `object`[]; `uuid`: `string`; \}
 
-Defined in: [src/auth/decorators/current-user.decorator.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/decorators/current-user.decorator.ts#L4)
+Defined in: [src/auth/decorators/current-user.decorator.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/decorators/current-user.decorator.ts#L4)
 
 ## Parameters
 

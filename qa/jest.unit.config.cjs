@@ -4,7 +4,7 @@ const baseConfig = require('./jest.base.cjs');
 const config = {
   ...baseConfig,
   displayName: 'unit',
-  testMatch: ['**/*.spec.ts'],
+  testMatch: ['<rootDir>/src/**/*.spec.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   coverageDirectory: '<rootDir>/coverage/unit',
   coverageThreshold: {

@@ -6,7 +6,7 @@
 
 # Class: UUIDResolverGuard
 
-Defined in: [src/guards/uuid-resolver.guard.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/guards/uuid-resolver.guard.ts#L7)
+Defined in: [src/guards/uuid-resolver.guard.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/guards/uuid-resolver.guard.ts#L7)
 
 ## Implements
 
@@ -18,7 +18,7 @@ Defined in: [src/guards/uuid-resolver.guard.ts:7](https://github.com/Miniwe/ns-p
 
 > **new UUIDResolverGuard**(`reflector`, `moduleRef`): `UUIDResolverGuard`
 
-Defined in: [src/guards/uuid-resolver.guard.ts:8](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/guards/uuid-resolver.guard.ts#L8)
+Defined in: [src/guards/uuid-resolver.guard.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/guards/uuid-resolver.guard.ts#L8)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/guards/uuid-resolver.guard.ts:8](https://github.com/Miniwe/ns-p
 
 > **canActivate**(`context`): `Promise`\<`boolean`\>
 
-Defined in: [src/guards/uuid-resolver.guard.ts:13](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/guards/uuid-resolver.guard.ts#L13)
+Defined in: [src/guards/uuid-resolver.guard.ts:13](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/guards/uuid-resolver.guard.ts#L13)
 
 #### Parameters
 

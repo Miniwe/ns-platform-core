@@ -28,43 +28,65 @@
     "README.md"
   ],
   "exports": {
-    "./database": {
-      "types": "./dist/database/index.d.ts",
-      "require": "./dist/database/index.js"
-    },
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js"
-    }
-  },
-  "todo": {
-    "./transactions": {
-      "types": "./dist/transactions/index.d.ts",
-      "require": "./dist/transactions/index.js"
+    "./access": {
+      "types": "./dist/access/index.d.ts",
+      "require": "./dist/access/index.js"
     },
     "./auth": {
       "types": "./dist/auth/index.d.ts",
       "require": "./dist/auth/index.js"
     },
-    "./permissions": {
-      "types": "./dist/permissions/index.d.ts",
-      "require": "./dist/permissions/index.js"
-    },
-    "./cache": {
-      "types": "./dist/cache/index.d.ts",
-      "require": "./dist/cache/index.js"
-    },
     "./config": {
       "types": "./dist/config/index.d.ts",
       "require": "./dist/config/index.js"
     },
-    "./error-handling": {
-      "types": "./dist/error-handling/index.d.ts",
-      "require": "./dist/error-handling/index.js"
+    "./context": {
+      "types": "./dist/context/index.d.ts",
+      "require": "./dist/context/index.js"
     },
-    "./testing": {
-      "types": "./dist/testing/index.d.ts",
-      "require": "./dist/testing/index.js"
+    "./database": {
+      "types": "./dist/database/index.d.ts",
+      "require": "./dist/database/index.js"
+    },
+    "./filters": {
+      "types": "./dist/filters/index.d.ts",
+      "require": "./dist/filters/index.js"
+    },
+    "./guards": {
+      "types": "./dist/guards/index.d.ts",
+      "require": "./dist/guards/index.js"
+    },
+    "./queues": {
+      "types": "./dist/queues/index.d.ts",
+      "require": "./dist/queues/index.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas/index.d.ts",
+      "require": "./dist/schemas/index.js"
+    },
+    "./security": {
+      "types": "./dist/security/index.d.ts",
+      "require": "./dist/security/index.js"
+    },
+    "./services": {
+      "types": "./dist/services/index.d.ts",
+      "require": "./dist/services/index.js"
+    },
+    "./transformers": {
+      "types": "./dist/transformers/index.d.ts",
+      "require": "./dist/database/transformers.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/types/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "require": "./dist/utils/index.js"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
@@ -72,15 +94,22 @@
     "build": "tsc -p tsconfig.build.json",
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "lint": "eslint .",
-    "test": "npm run test:unit && npm run test:integration && npm run test:contracts",
-    "test:unit": "jest --config qa/jest.unit.config.cjs --coverage",
+    "lint:fix": "eslint . --fix",
+    "test": "npm run test:unit",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:contracts",
+    "test:debug-handles": "jest --config qa/jest.unit.config.cjs --runInBand --detectOpenHandles",
+    "test:unit": "jest --config qa/jest.unit.config.cjs",
+    "test:unit:cov": "jest --config qa/jest.unit.config.cjs --coverage",
     "test:integration": "jest --config qa/jest.integration.config.cjs --runInBand",
     "test:contracts": "jest --config qa/jest.contract.config.cjs",
+    "test:dependencies": "npx dependency-cruiser src -c .dependency-cruiser.js",
     "test:smoke": "jest --config qa/jest.smoke.config.cjs --runInBand",
-    "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:open": "allure open allure-report",
+    "report:single": "allure generate allure-results --single-file -o allure-report --clean",
+    "report:generate": "allure generate allure-results -o allure-report --clean",
     "docs": "typedoc",
     "knip": "npx knip",
-    "prepublishOnly": "npm run clean && npm run lint && npm run test:all && npm run build"
+    "prepublishOnly": "npm run clean && npm run lint && npm run test:dependencies && npm run test:all && npm run build"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
@@ -108,6 +137,7 @@
     "nestjs-zod": "^5.3.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@jest/globals": "^30.4.1",
     "@nestjs/testing": "^11.0.1",
     "@testcontainers/postgresql": "^10.28.0",
@@ -117,7 +147,12 @@
     "allure-commandline": "^2.42.0",
     "allure-jest": "^3.9.0",
     "dependency-cruiser": "^17.4.0",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
     "fastify": "^5.8.5",
+    "globals": "^17.6.0",
     "jest": "^30.4.2",
     "jest-allure2-reporter": "^2.3.0",
     "knip": "^6.14.2",
@@ -129,9 +164,10 @@
     "tsconfig-paths": "^4.2.0",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.11.0",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.60.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@miniwe:registry": "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/"
   }
 }

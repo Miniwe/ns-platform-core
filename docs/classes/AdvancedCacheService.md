@@ -6,7 +6,7 @@
 
 # Class: AdvancedCacheService
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L11)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L11)
 
 ## Implements
 
@@ -18,7 +18,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:11](https://g
 
 > **new AdvancedCacheService**(`cacheManager`, `redis`, `errorHandlingService`): `AdvancedCacheService`
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:14](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L14)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:14](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L14)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:14](https://g
 
 > **delete**(`key`): `Promise`\<`void`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:62](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L62)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:62](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L62)
 
 Удаление ключа из кэша.
 Не выбрасывает исключения — фейл кэша не должен ломать бизнес-логику.
@@ -65,7 +65,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:62](https://g
 
 > **expire**(`key`, `seconds`): `Promise`\<`void`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:154](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L154)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:154](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L154)
 
 #### Parameters
 
@@ -87,7 +87,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:154](https://
 
 > **flushAll**(): `Promise`\<`void`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:162](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L162)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:162](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L162)
 
 #### Returns
 
@@ -99,7 +99,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:162](https://
 
 > **get**\<`T`\>(`key`): `Promise`\<`T` \| `undefined`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:20](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L20)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:20](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L20)
 
 #### Type Parameters
 
@@ -123,7 +123,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:20](https://g
 
 > **getWithFallback**\<`T`\>(`key`, `fallback`, `options?`): `Promise`\<`T`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:166](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L166)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:166](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L166)
 
 #### Type Parameters
 
@@ -169,7 +169,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:166](https://
 
 > **incr**(`key`): `Promise`\<`number`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:150](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L150)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:150](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L150)
 
 #### Parameters
 
@@ -187,7 +187,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:150](https://
 
 > **invalidateTag**(`tag`): `Promise`\<`number`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:74](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L74)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:74](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L74)
 
 #### Parameters
 
@@ -205,7 +205,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:74](https://g
 
 > **invalidateTags**(`tags`): `Promise`\<`number`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:102](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L102)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:102](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L102)
 
 Инвалидация всех ключей с указанным тегом.
 
@@ -225,7 +225,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:102](https://
 
 > **onModuleDestroy**(): `Promise`\<`void`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:142](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L142)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:142](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L142)
 
 #### Returns
 
@@ -241,7 +241,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:142](https://
 
 > **ping**(): `Promise`\<`boolean`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:130](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L130)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:130](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L130)
 
 #### Returns
 
@@ -253,7 +253,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:130](https://
 
 > **set**\<`T`\>(`key`, `value`, `options?`): `Promise`\<`void`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:33](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L33)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:33](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L33)
 
 #### Type Parameters
 
@@ -299,7 +299,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:33](https://g
 
 > **ttl**(`key`): `Promise`\<`number`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:158](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L158)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:158](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L158)
 
 #### Parameters
 
@@ -317,7 +317,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.service.ts:158](https://
 
 > **wrap**\<`T`\>(`key`, `factory`, `options?`): `Promise`\<`T`\>
 
-Defined in: [src/services/advanced-cache/advanced-cache.service.ts:118](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.service.ts#L118)
+Defined in: [src/services/advanced-cache/advanced-cache.service.ts:118](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.service.ts#L118)
 
 #### Type Parameters
 

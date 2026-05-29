@@ -8,7 +8,7 @@
 
 > **RateLimit**(`config`): `CustomDecorator`\<`string`\>
 
-Defined in: src/services/advanced-throttle/domain/advanced-throttle.schema.ts:60
+Defined in: [src/services/advanced-throttle/domain/advanced-throttle.schema.ts:60](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/domain/advanced-throttle.schema.ts#L60)
 
 ## Parameters
 

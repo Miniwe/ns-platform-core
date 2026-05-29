@@ -20,9 +20,9 @@
  */
 
 import { Injectable, CanActivate, ExecutionContext,
-         HttpException, HttpStatus, SetMetadata, Inject, Optional } from '@nestjs/common';
+         HttpException, HttpStatus, Inject, Optional } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { AdvancedCacheService } from '@/services';
+import { AdvancedCacheService } from '../advanced-cache/advanced-cache.service';
 import type { HttpRequestLike } from '@/security';
 import { THROTTLE_MODULE_OPTIONS, ThrottleModuleOptions } from './types'; // вынесем интерфейс
 import { RateLimitConfig } from './domain'; // вынесем интерфейс
@@ -112,8 +112,7 @@ export class AdvancedThrottleGuard implements CanActivate {
     }
 
     const ip = HttpRequestLike.ip || HttpRequestLike?.connection?.remoteAddress || 'unknown';
-    // TODO: remove `@ts-ignore` when HttpRequestLike.user typing is standardized
-    // @ts-ignore
+
     const userId = HttpRequestLike.user?.id || 'anonymous';
 
     return `ratelimit:${ip}:${userId}:${HttpRequestLike.route?.path || 'unknown'}`;

@@ -6,7 +6,7 @@
 
 # Class: AdvancedThrottleModule
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:13](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L13)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:13](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L13)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:13](http
 
 > `static` **register**(`options?`): `DynamicModule`
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:14](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L14)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:14](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L14)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:14](http
 
 > `static` **registerAsync**(`asyncOptions`): `DynamicModule`
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:27](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L27)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:27](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L27)
 
 #### Parameters
 

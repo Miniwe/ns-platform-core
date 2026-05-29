@@ -6,7 +6,7 @@
 
 # Class: ColumnNumericTransformer
 
-Defined in: [src/transformers/numeric.transformer.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/transformers/numeric.transformer.ts#L4)
+Defined in: [src/transformers/numeric.transformer.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/transformers/numeric.transformer.ts#L4)
 
 ## Implements
 
@@ -28,7 +28,7 @@ Defined in: [src/transformers/numeric.transformer.ts:4](https://github.com/Miniw
 
 > **from**(`data`): `Decimal` \| `null`
 
-Defined in: [src/transformers/numeric.transformer.ts:9](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/transformers/numeric.transformer.ts#L9)
+Defined in: [src/transformers/numeric.transformer.ts:9](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/transformers/numeric.transformer.ts#L9)
 
 Used to unmarshal data when reading from the database.
 
@@ -52,7 +52,7 @@ Used to unmarshal data when reading from the database.
 
 > **to**(`data`): `string` \| `null`
 
-Defined in: [src/transformers/numeric.transformer.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/transformers/numeric.transformer.ts#L5)
+Defined in: [src/transformers/numeric.transformer.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/transformers/numeric.transformer.ts#L5)
 
 Used to marshal data when writing to the database.
 

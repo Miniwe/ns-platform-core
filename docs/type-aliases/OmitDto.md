@@ -8,7 +8,7 @@
 
 > **OmitDto**\<`T`, `K`\> = `Pick`\<`T`, `Exclude`\<keyof `T`, `K`\>\>
 
-Defined in: [src/types/dto.types.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/types/dto.types.ts#L6)
+Defined in: [src/types/dto.types.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/types/dto.types.ts#L6)
 
 Переопределение обязательности/опциональности полей
 

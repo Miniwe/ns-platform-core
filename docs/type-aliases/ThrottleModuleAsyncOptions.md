@@ -8,7 +8,7 @@
 
 > **ThrottleModuleAsyncOptions** = `object`
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L6)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L6)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:6](https
 
 > `optional` **imports?**: [`NestModuleImport`](NestModuleImport.md)[]
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:9](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L9)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:9](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L9)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:9](https
 
 > `optional` **inject?**: `any`[]
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:8](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L8)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L8)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:8](https
 
 > **useFactory**: (...`args`) => `Promise`\<[`ThrottleModuleOptions`](../interfaces/ThrottleModuleOptions.md)\> \| [`ThrottleModuleOptions`](../interfaces/ThrottleModuleOptions.md)
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.module.ts#L7)
+Defined in: [src/services/advanced-throttle/advanced-throttle.module.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.module.ts#L7)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: IResourceResolver
 
-Defined in: src/services/base.service/base.service.ts:27
+Defined in: [src/services/base.service/base.service.ts:25](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L25)
 
 Контракт для сервисов, поддерживающих конвертацию внешнего UUID во внутренний ID
 
@@ -16,7 +16,7 @@ Defined in: src/services/base.service/base.service.ts:27
 
 > **resolveInternalId**(`uuid`): `Promise`\<`number` \| `null`\>
 
-Defined in: src/services/base.service/base.service.ts:28
+Defined in: [src/services/base.service/base.service.ts:26](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L26)
 
 #### Parameters
 

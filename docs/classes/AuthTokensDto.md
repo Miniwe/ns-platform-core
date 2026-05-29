@@ -6,7 +6,7 @@
 
 # Class: AuthTokensDto
 
-Defined in: [src/auth/models/auth-session.model.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/models/auth-session.model.ts#L4)
+Defined in: [src/auth/models/auth-session.model.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/models/auth-session.model.ts#L4)
 
 ## Extends
 
@@ -34,7 +34,7 @@ Defined in: node\_modules/nestjs-zod/dist/dto-BwNEQwoy.d.cts:33
 
 > **accessToken**: `string`
 
-Defined in: [src/auth/schemas/auth-session.schema.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/schemas/auth-session.schema.ts#L5)
+Defined in: [src/auth/schemas/auth-session.schema.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/schemas/auth-session.schema.ts#L5)
 
 #### Inherited from
 
@@ -46,7 +46,7 @@ Defined in: [src/auth/schemas/auth-session.schema.ts:5](https://github.com/Miniw
 
 > **expiresIn**: `number`
 
-Defined in: [src/auth/schemas/auth-session.schema.ts:8](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/schemas/auth-session.schema.ts#L8)
+Defined in: [src/auth/schemas/auth-session.schema.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/schemas/auth-session.schema.ts#L8)
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: [src/auth/schemas/auth-session.schema.ts:8](https://github.com/Miniw
 
 > `optional` **refreshExpiresIn?**: `number`
 
-Defined in: [src/auth/schemas/auth-session.schema.ts:9](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/schemas/auth-session.schema.ts#L9)
+Defined in: [src/auth/schemas/auth-session.schema.ts:9](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/schemas/auth-session.schema.ts#L9)
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: [src/auth/schemas/auth-session.schema.ts:9](https://github.com/Miniw
 
 > `optional` **refreshToken?**: `string`
 
-Defined in: [src/auth/schemas/auth-session.schema.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/schemas/auth-session.schema.ts#L6)
+Defined in: [src/auth/schemas/auth-session.schema.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/schemas/auth-session.schema.ts#L6)
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: [src/auth/schemas/auth-session.schema.ts:6](https://github.com/Miniw
 
 > **tokenType**: `"Bearer"`
 
-Defined in: [src/auth/schemas/auth-session.schema.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/schemas/auth-session.schema.ts#L7)
+Defined in: [src/auth/schemas/auth-session.schema.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/schemas/auth-session.schema.ts#L7)
 
 #### Inherited from
 

@@ -6,7 +6,7 @@
 
 # Class: AppContext
 
-Defined in: src/context/app.context.ts:14
+Defined in: [src/context/app.context.ts:14](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/context/app.context.ts#L14)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: src/context/app.context.ts:14
 
 > `static` **getStore**(): `AppContextStore` \| `undefined`
 
-Defined in: src/context/app.context.ts:21
+Defined in: [src/context/app.context.ts:21](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/context/app.context.ts#L21)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: src/context/app.context.ts:21
 
 > `static` **run**\<`T`\>(`store`, `callback`): `T`
 
-Defined in: src/context/app.context.ts:17
+Defined in: [src/context/app.context.ts:17](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/context/app.context.ts#L17)
 
 #### Type Parameters
 
@@ -64,7 +64,7 @@ Defined in: src/context/app.context.ts:17
 
 > `static` **setPartial**(`patch`): `void`
 
-Defined in: src/context/app.context.ts:25
+Defined in: [src/context/app.context.ts:25](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/context/app.context.ts#L25)
 
 #### Parameters
 

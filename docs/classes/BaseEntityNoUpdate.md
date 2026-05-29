@@ -6,7 +6,7 @@
 
 # Abstract Class: BaseEntityNoUpdate
 
-Defined in: [src/database/domain/base.entity.ts:15](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.entity.ts#L15)
+Defined in: [src/database/domain/base.entity.ts:15](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.entity.ts#L15)
 
 Абстрактный базовый класс для всех сущностей системы.
 Обеспечивает наличие внутреннего числового ID для производительности
@@ -36,7 +36,7 @@ Defined in: [src/database/domain/base.entity.ts:15](https://github.com/Miniwe/ns
 
 > **createdAt**: `string`
 
-Defined in: [src/database/domain/base.entity.ts:38](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.entity.ts#L38)
+Defined in: [src/database/domain/base.entity.ts:38](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.entity.ts#L38)
 
 Дата и время создания записи
 
@@ -50,7 +50,7 @@ Defined in: [src/database/domain/base.entity.ts:38](https://github.com/Miniwe/ns
 
 > **id**: `number`
 
-Defined in: [src/database/domain/base.entity.ts:20](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.entity.ts#L20)
+Defined in: [src/database/domain/base.entity.ts:20](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.entity.ts#L20)
 
 Внутренний первичный ключ (используется для связей и индексов в БД)
 
@@ -64,7 +64,7 @@ Defined in: [src/database/domain/base.entity.ts:20](https://github.com/Miniwe/ns
 
 > **uuid**: `string`
 
-Defined in: [src/database/domain/base.entity.ts:28](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.entity.ts#L28)
+Defined in: [src/database/domain/base.entity.ts:28](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.entity.ts#L28)
 
 Публичный уникальный идентификатор.
 Только это поле должно передаваться наружу во внешних API[cite: 65, 48].

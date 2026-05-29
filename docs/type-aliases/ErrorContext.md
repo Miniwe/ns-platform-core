@@ -8,4 +8,4 @@
 
 > **ErrorContext** = `z.infer`\<*typeof* [`ErrorContextSchema`](../variables/ErrorContextSchema.md)\>
 
-Defined in: [src/services/error-handling/error-context.schema.ts:27](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/error-handling/error-context.schema.ts#L27)
+Defined in: [src/services/error-handling/error-context.schema.ts:27](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/error-handling/error-context.schema.ts#L27)

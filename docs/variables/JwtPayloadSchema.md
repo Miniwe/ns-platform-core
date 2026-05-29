@@ -8,4 +8,4 @@
 
 > `const` **JwtPayloadSchema**: `ZodObject`\<\{ `sub`: `ZodNumber`; `uuid`: `ZodUUID`; \}, `$strip`\>
 
-Defined in: [src/auth/schemas/jwt-payload.schema.ts:3](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/schemas/jwt-payload.schema.ts#L3)
+Defined in: [src/auth/schemas/jwt-payload.schema.ts:3](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/schemas/jwt-payload.schema.ts#L3)

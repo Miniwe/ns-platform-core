@@ -1,7 +1,7 @@
 import { DynamicModule, ForwardReference, Type } from '@nestjs/common';
 
 export type NestModuleImport =
-  | Type<any>
+  | Type<unknown>
   | DynamicModule
   | Promise<DynamicModule>
   | ForwardReference;

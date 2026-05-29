@@ -11,7 +11,7 @@ export class ErrorHandlingService {
    * @param context - Дополнительный контекст
    * @param rethrow - Нужно ли пробрасывать ошибку дальше (для фильтров)
    */
-  handleError(error: any, context?: ErrorContext, rethrow: boolean = true): never | void {
+  handleError(error: unknown, context?: ErrorContext, rethrow: boolean = true): never | void {
     const message = error instanceof Error ? error.message : String(error);
     const stack = error instanceof Error ? error.stack : undefined;
 
@@ -98,7 +98,7 @@ export class ErrorHandlingService {
     if (!data || typeof data !== 'object') return data;
 
     if (Array.isArray(data)) {
-      return data.map((item) => this.sanitizeData(item));
+      return data.map(this.sanitizeData);
     }
 
     const sensitiveFields = ['password', 'token', 'secret', 'key', 'jwt', 'authorization'];

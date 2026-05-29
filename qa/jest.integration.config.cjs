@@ -6,7 +6,7 @@ const config = {
   displayName: 'integration',
   testMatch: ['<rootDir>/test/integration/**/*.int-spec.ts'],
   coverageDirectory: '<rootDir>/coverage/integration',
-  setupFilesAfterEnv: ['<rootDir>/test/setup/integration.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/qa/setup/integration.setup.ts'],
   testTimeout: 60000,
   maxWorkers: 1,
 };

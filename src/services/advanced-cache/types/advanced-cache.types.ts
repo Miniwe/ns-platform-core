@@ -1,4 +1,4 @@
-import type { InjectionToken, ModuleMetadata, OptionalFactoryDependency, Provider, Type } from '@nestjs/common/interfaces';
+import type { InjectionToken, ModuleMetadata, OptionalFactoryDependency, Type } from '@nestjs/common/interfaces';
 
 export type AdvancedCacheModuleOptions = {
   host: string;

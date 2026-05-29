@@ -8,7 +8,7 @@
 
 > **OverrideRequiredDto**\<`T`, `K`\> = `Omit`\<`T`, `K`\> & `{ [P in K]-?: T[P] }`
 
-Defined in: [src/types/dto.types.ts:23](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/types/dto.types.ts#L23)
+Defined in: [src/types/dto.types.ts:23](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/types/dto.types.ts#L23)
 
 ## Type Parameters
 

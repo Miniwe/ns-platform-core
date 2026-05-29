@@ -8,7 +8,7 @@
 
 > **PostgresRuntimeConfig** = `object`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L4)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L4)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:4](https://github.com/
 
 > **database**: `string`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:9](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L9)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:9](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L9)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:9](https://github.com/
 
 > **host**: `string`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L5)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L5)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:5](https://github.com/
 
 > **password**: `string`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:8](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L8)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L8)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:8](https://github.com/
 
 > **port**: `number`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L6)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L6)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [src/database/typeorm/build.typeorm.config.ts:6](https://github.com/
 
 > **username**: `string`
 
-Defined in: [src/database/typeorm/build.typeorm.config.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/build.typeorm.config.ts#L7)
+Defined in: [src/database/typeorm/build.typeorm.config.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/build.typeorm.config.ts#L7)

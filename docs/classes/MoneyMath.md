@@ -6,7 +6,7 @@
 
 # Class: MoneyMath
 
-Defined in: [src/utils/money-math.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L6)
+Defined in: [src/utils/money-math.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L6)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [src/utils/money-math.ts:6](https://github.com/Miniwe/ns-platform-co
 
 > `static` **add**(`a`, `b`): `Decimal`
 
-Defined in: [src/utils/money-math.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L7)
+Defined in: [src/utils/money-math.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L7)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [src/utils/money-math.ts:7](https://github.com/Miniwe/ns-platform-co
 
 > `static` **div**(`a`, `b`): `Decimal`
 
-Defined in: [src/utils/money-math.ts:19](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L19)
+Defined in: [src/utils/money-math.ts:19](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L19)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ Defined in: [src/utils/money-math.ts:19](https://github.com/Miniwe/ns-platform-c
 
 > `static` **mul**(`a`, `b`): `Decimal`
 
-Defined in: [src/utils/money-math.ts:15](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L15)
+Defined in: [src/utils/money-math.ts:15](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L15)
 
 #### Parameters
 
@@ -90,7 +90,7 @@ Defined in: [src/utils/money-math.ts:15](https://github.com/Miniwe/ns-platform-c
 
 > `static` **sub**(`a`, `b`): `Decimal`
 
-Defined in: [src/utils/money-math.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L11)
+Defined in: [src/utils/money-math.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L11)
 
 #### Parameters
 
@@ -112,7 +112,7 @@ Defined in: [src/utils/money-math.ts:11](https://github.com/Miniwe/ns-platform-c
 
 > `static` **toFixed2**(`d`): `string`
 
-Defined in: [src/utils/money-math.ts:28](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L28)
+Defined in: [src/utils/money-math.ts:28](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L28)
 
 #### Parameters
 
@@ -130,7 +130,7 @@ Defined in: [src/utils/money-math.ts:28](https://github.com/Miniwe/ns-platform-c
 
 > `static` **toFixed4**(`d`): `string`
 
-Defined in: [src/utils/money-math.ts:24](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/utils/money-math.ts#L24)
+Defined in: [src/utils/money-math.ts:24](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/utils/money-math.ts#L24)
 
 #### Parameters
 

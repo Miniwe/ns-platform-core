@@ -1,10 +1,12 @@
-const { Config } = require('jest');
-
 /** @type {import('jest').Config} */
 const baseConfig = {
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: '..',
   testEnvironment: 'node',
+  // forceExit: true,
+  detectOpenHandles: true,
+  setupFilesAfterEnv: ['./qa/jest.after-env.ts'],
+  openHandlesTimeout: 1000,
   transform: {
     '^.+\\.(t|j)s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.json' }],
   },

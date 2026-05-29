@@ -6,7 +6,7 @@
 
 # Abstract Class: BaseService\<T\>
 
-Defined in: src/services/base.service/base.service.ts:37
+Defined in: [src/services/base.service/base.service.ts:35](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L35)
 
 Контракт для сервисов, поддерживающих конвертацию внешнего UUID во внутренний ID
 
@@ -26,7 +26,7 @@ Defined in: src/services/base.service/base.service.ts:37
 
 > **new BaseService**\<`T`\>(`errorHandling?`): `BaseService`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:43
+Defined in: [src/services/base.service/base.service.ts:41](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L41)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: src/services/base.service/base.service.ts:43
 
 > **count**(`options?`): `Promise`\<`number`\>
 
-Defined in: src/services/base.service/base.service.ts:214
+Defined in: [src/services/base.service/base.service.ts:212](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L212)
 
 #### Parameters
 
@@ -62,7 +62,7 @@ Defined in: src/services/base.service/base.service.ts:214
 
 > **create**(`data`): `Promise`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:373
+Defined in: [src/services/base.service/base.service.ts:371](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L371)
 
 Создание новой сущности.
 
@@ -82,7 +82,7 @@ Defined in: src/services/base.service/base.service.ts:373
 
 > **createMany**(`dataArray`): `Promise`\<`T`[]\>
 
-Defined in: src/services/base.service/base.service.ts:248
+Defined in: [src/services/base.service/base.service.ts:246](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L246)
 
 #### Parameters
 
@@ -100,7 +100,7 @@ Defined in: src/services/base.service/base.service.ts:248
 
 > **delete**(`id`): `Promise`\<`void`\>
 
-Defined in: src/services/base.service/base.service.ts:431
+Defined in: [src/services/base.service/base.service.ts:429](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L429)
 
 Удаление сущности через manager.
 
@@ -120,7 +120,7 @@ Defined in: src/services/base.service/base.service.ts:431
 
 > **exists**(`id`): `Promise`\<`boolean`\>
 
-Defined in: src/services/base.service/base.service.ts:203
+Defined in: [src/services/base.service/base.service.ts:201](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L201)
 
 #### Parameters
 
@@ -138,7 +138,7 @@ Defined in: src/services/base.service/base.service.ts:203
 
 > **findAll**(`options?`): `Promise`\<`T`[]\>
 
-Defined in: src/services/base.service/base.service.ts:146
+Defined in: [src/services/base.service/base.service.ts:144](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L144)
 
 #### Parameters
 
@@ -156,7 +156,7 @@ Defined in: src/services/base.service/base.service.ts:146
 
 > **findByExternalId**(`uuid`, `relations?`): `Promise`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:90
+Defined in: [src/services/base.service/base.service.ts:88](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L88)
 
 Поиск сущности по внешнему UUID.
 
@@ -180,7 +180,7 @@ Defined in: src/services/base.service/base.service.ts:90
 
 > **findById**(`id`): `Promise`\<`T` \| `null`\>
 
-Defined in: src/services/base.service/base.service.ts:329
+Defined in: [src/services/base.service/base.service.ts:327](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L327)
 
 Поиск сущности по числовому ID.
 
@@ -200,7 +200,7 @@ Defined in: src/services/base.service/base.service.ts:329
 
 > **findByIdOrFail**(`id`): `Promise`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:338
+Defined in: [src/services/base.service/base.service.ts:336](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L336)
 
 Поиск сущности по ID с выбросом исключения, если не найдена.
 
@@ -220,7 +220,7 @@ Defined in: src/services/base.service/base.service.ts:338
 
 > **findByUuid**(`uuid`): `Promise`\<`T` \| `null`\>
 
-Defined in: src/services/base.service/base.service.ts:351
+Defined in: [src/services/base.service/base.service.ts:349](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L349)
 
 Поиск сущности по UUID.
 
@@ -240,7 +240,7 @@ Defined in: src/services/base.service/base.service.ts:351
 
 > **findByUuidOrFail**(`uuid`): `Promise`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:360
+Defined in: [src/services/base.service/base.service.ts:358](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L358)
 
 Поиск сущности по UUID с гарантированным результатом.
 
@@ -260,7 +260,7 @@ Defined in: src/services/base.service/base.service.ts:360
 
 > **findOne**(`id`, `relations?`): `Promise`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:163
+Defined in: [src/services/base.service/base.service.ts:161](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L161)
 
 #### Parameters
 
@@ -282,7 +282,7 @@ Defined in: src/services/base.service/base.service.ts:163
 
 > **findWithPagination**(`page`, `limit`, `options?`): `Promise`\<\{ `data`: `T`[]; `limit`: `number`; `page`: `number`; `total`: `number`; \}\>
 
-Defined in: src/services/base.service/base.service.ts:223
+Defined in: [src/services/base.service/base.service.ts:221](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L221)
 
 #### Parameters
 
@@ -308,7 +308,7 @@ Defined in: src/services/base.service/base.service.ts:223
 
 > **loadById**(`id`): `Promise`\<`Error` \| `T`\>
 
-Defined in: src/services/base.service/base.service.ts:105
+Defined in: [src/services/base.service/base.service.ts:103](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L103)
 
 #### Parameters
 
@@ -326,7 +326,7 @@ Defined in: src/services/base.service/base.service.ts:105
 
 > **loadManyByIds**(`ids`): `Promise`\<(`Error` \| `T`)[]\>
 
-Defined in: src/services/base.service/base.service.ts:109
+Defined in: [src/services/base.service/base.service.ts:107](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L107)
 
 #### Parameters
 
@@ -344,7 +344,7 @@ Defined in: src/services/base.service/base.service.ts:109
 
 > **remove**(`id`): `Promise`\<`void`\>
 
-Defined in: src/services/base.service/base.service.ts:188
+Defined in: [src/services/base.service/base.service.ts:186](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L186)
 
 #### Parameters
 
@@ -362,7 +362,7 @@ Defined in: src/services/base.service/base.service.ts:188
 
 > **removeMany**(`ids`): `Promise`\<`number`\>
 
-Defined in: src/services/base.service/base.service.ts:290
+Defined in: [src/services/base.service/base.service.ts:288](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L288)
 
 #### Parameters
 
@@ -380,7 +380,7 @@ Defined in: src/services/base.service/base.service.ts:290
 
 > **resolveInternalId**(`uuid`): `Promise`\<`number` \| `null`\>
 
-Defined in: src/services/base.service/base.service.ts:73
+Defined in: [src/services/base.service/base.service.ts:71](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L71)
 
 КРИТИЧЕСКИЙ МЕТОД: Преобразование UUID во внутренний числовой ID для guards.
 
@@ -404,7 +404,7 @@ Defined in: src/services/base.service/base.service.ts:73
 
 > **softDelete**(`id`): `Promise`\<`void`\>
 
-Defined in: src/services/base.service/base.service.ts:311
+Defined in: [src/services/base.service/base.service.ts:309](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L309)
 
 #### Parameters
 
@@ -422,7 +422,7 @@ Defined in: src/services/base.service/base.service.ts:311
 
 > **update**(`id`, `data`): `Promise`\<`T`\>
 
-Defined in: src/services/base.service/base.service.ts:399
+Defined in: [src/services/base.service/base.service.ts:397](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L397)
 
 Обновление существующей сущности.
 
@@ -446,7 +446,7 @@ Defined in: src/services/base.service/base.service.ts:399
 
 > **updateMany**(`ids`, `data`): `Promise`\<`number`\>
 
-Defined in: src/services/base.service/base.service.ts:269
+Defined in: [src/services/base.service/base.service.ts:267](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L267)
 
 #### Parameters
 

@@ -13,7 +13,7 @@ describe('RequestContextInterceptor', () => {
 
   beforeEach(() => {
     interceptor = new RequestContextInterceptor();
-    jest.spyOn(RequestContext, 'run').mockImplementation((store, cb) => cb());
+    jest.spyOn(RequestContext, 'run').mockImplementation((_store, cb) => cb());
   });
 
   afterEach(() => {

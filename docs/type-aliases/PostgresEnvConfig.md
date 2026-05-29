@@ -8,4 +8,4 @@
 
 > **PostgresEnvConfig** = `z.infer`\<*typeof* [`postgresEnvSchema`](../variables/postgresEnvSchema.md)\>
 
-Defined in: [src/database/typeorm/postgres.config.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/typeorm/postgres.config.ts#L11)
+Defined in: [src/database/typeorm/postgres.config.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/typeorm/postgres.config.ts#L11)

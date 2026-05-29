@@ -6,7 +6,7 @@
 
 # Class: JwtAuthGuard
 
-Defined in: [src/auth/guards/jwt-auth.guard.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/guards/jwt-auth.guard.ts#L11)
+Defined in: [src/auth/guards/jwt-auth.guard.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/guards/jwt-auth.guard.ts#L11)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/auth/guards/jwt-auth.guard.ts:11](https://github.com/Miniwe/ns-
 
 > **new JwtAuthGuard**(`reflector`): `JwtAuthGuard`
 
-Defined in: [src/auth/guards/jwt-auth.guard.ts:12](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/guards/jwt-auth.guard.ts#L12)
+Defined in: [src/auth/guards/jwt-auth.guard.ts:12](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/guards/jwt-auth.guard.ts#L12)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/auth/guards/jwt-auth.guard.ts:12](https://github.com/Miniwe/ns-
 
 > **canActivate**(`context`): `boolean` \| `Promise`\<`boolean`\> \| `Observable`\<`boolean`\>
 
-Defined in: [src/auth/guards/jwt-auth.guard.ts:16](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/guards/jwt-auth.guard.ts#L16)
+Defined in: [src/auth/guards/jwt-auth.guard.ts:16](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/guards/jwt-auth.guard.ts#L16)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ proceed.
 
 > **handleRequest**\<`TUser`\>(`err`, `user`): `TUser`
 
-Defined in: [src/auth/guards/jwt-auth.guard.ts:29](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/auth/guards/jwt-auth.guard.ts#L29)
+Defined in: [src/auth/guards/jwt-auth.guard.ts:29](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/auth/guards/jwt-auth.guard.ts#L29)
 
 #### Type Parameters
 

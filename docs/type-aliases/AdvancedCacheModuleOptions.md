@@ -8,7 +8,7 @@
 
 > **AdvancedCacheModuleOptions** = `object`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:3](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L3)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:3](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L3)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:3](https:
 
 > `optional` **db?**: `number`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L7)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L7)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:7](https:
 
 > `optional` **enableReadyCheck?**: `boolean`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L11)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L11)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:11](https
 
 > **host**: `string`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L4)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L4)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:4](https:
 
 > `optional` **lazyConnect?**: `boolean`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:12](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L12)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:12](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L12)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:12](https
 
 > `optional` **maxRetriesPerRequest?**: `number`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:10](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L10)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:10](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L10)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:10](https
 
 > `optional` **namespace?**: `string`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:8](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L8)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L8)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:8](https:
 
 > `optional` **password?**: `string`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L6)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L6)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:6](https:
 
 > **port**: `number`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L5)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L5)
 
 ***
 
@@ -80,4 +80,4 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:5](https:
 
 > `optional` **ttl?**: `number`
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:9](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L9)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:9](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L9)

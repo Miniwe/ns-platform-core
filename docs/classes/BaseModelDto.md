@@ -6,7 +6,7 @@
 
 # Class: BaseModelDto
 
-Defined in: [src/database/domain/base.model.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.model.ts#L5)
+Defined in: [src/database/domain/base.model.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.model.ts#L5)
 
 ## Extends
 
@@ -34,7 +34,7 @@ Defined in: node\_modules/nestjs-zod/dist/dto-BwNEQwoy.d.cts:33
 
 > `optional` **createdAt?**: `string`
 
-Defined in: [src/database/domain/base.schema.ts:6](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.schema.ts#L6)
+Defined in: [src/database/domain/base.schema.ts:6](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.schema.ts#L6)
 
 #### Inherited from
 
@@ -46,7 +46,7 @@ Defined in: [src/database/domain/base.schema.ts:6](https://github.com/Miniwe/ns-
 
 > **id**: `number`
 
-Defined in: [src/database/domain/base.schema.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.schema.ts#L4)
+Defined in: [src/database/domain/base.schema.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.schema.ts#L4)
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: [src/database/domain/base.schema.ts:4](https://github.com/Miniwe/ns-
 
 > `optional` **updatedAt?**: `string`
 
-Defined in: [src/database/domain/base.schema.ts:10](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.schema.ts#L10)
+Defined in: [src/database/domain/base.schema.ts:10](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.schema.ts#L10)
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: [src/database/domain/base.schema.ts:10](https://github.com/Miniwe/ns
 
 > **uuid**: `string`
 
-Defined in: [src/database/domain/base.schema.ts:5](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.schema.ts#L5)
+Defined in: [src/database/domain/base.schema.ts:5](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.schema.ts#L5)
 
 #### Inherited from
 

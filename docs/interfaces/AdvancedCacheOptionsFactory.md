@@ -6,7 +6,7 @@
 
 # Interface: AdvancedCacheOptionsFactory
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:15](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L15)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:15](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L15)
 
 ## Methods
 
@@ -14,7 +14,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:15](https
 
 > **createAdvancedCacheOptions**(): [`AdvancedCacheModuleOptions`](../type-aliases/AdvancedCacheModuleOptions.md) \| `Promise`\<[`AdvancedCacheModuleOptions`](../type-aliases/AdvancedCacheModuleOptions.md)\>
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:16](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L16)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:16](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L16)
 
 #### Returns
 

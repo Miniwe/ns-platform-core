@@ -143,8 +143,8 @@ export class AdvancedCacheService implements OnModuleDestroy {
     await this.redis.quit();
   }
 
-  private getTagKey(tag: string | Symbol): string {
-    return `tag:${tag}`;
+  private getTagKey(tag: string | symbol): string {
+    return `tag:${String(tag)}`;
   }
 
   async incr(key: string) {

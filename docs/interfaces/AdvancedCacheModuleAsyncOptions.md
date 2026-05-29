@@ -6,7 +6,7 @@
 
 # Interface: AdvancedCacheModuleAsyncOptions
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:21](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L21)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:21](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L21)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:21](https
 
 > `optional` **inject?**: (`InjectionToken` \| `OptionalFactoryDependency`)[]
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:28](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L28)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:28](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L28)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:28](https
 
 > `optional` **useClass?**: `Type`\<[`AdvancedCacheOptionsFactory`](AdvancedCacheOptionsFactory.md)\>
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:24](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L24)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:24](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L24)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:24](https
 
 > `optional` **useExisting?**: `Type`\<[`AdvancedCacheOptionsFactory`](AdvancedCacheOptionsFactory.md)\>
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:23](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L23)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:23](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L23)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:23](https
 
 > `optional` **useFactory?**: (...`args`) => [`AdvancedCacheModuleOptions`](../type-aliases/AdvancedCacheModuleOptions.md) \| `Promise`\<[`AdvancedCacheModuleOptions`](../type-aliases/AdvancedCacheModuleOptions.md)\>
 
-Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:25](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/types/advanced-cache.types.ts#L25)
+Defined in: [src/services/advanced-cache/types/advanced-cache.types.ts:25](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/types/advanced-cache.types.ts#L25)
 
 #### Parameters
 

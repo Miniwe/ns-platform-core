@@ -6,7 +6,7 @@
 
 # Class: TransactionContext
 
-Defined in: [src/services/transaction/transaction-context.service.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/transaction/transaction-context.service.ts#L4)
+Defined in: [src/services/transaction/transaction-context.service.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/transaction/transaction-context.service.ts#L4)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [src/services/transaction/transaction-context.service.ts:4](https://
 
 > `static` **getManager**(): `EntityManager`
 
-Defined in: [src/services/transaction/transaction-context.service.ts:15](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/transaction/transaction-context.service.ts#L15)
+Defined in: [src/services/transaction/transaction-context.service.ts:15](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/transaction/transaction-context.service.ts#L15)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: [src/services/transaction/transaction-context.service.ts:15](https:/
 
 > `static` **hasActiveTransaction**(): `boolean`
 
-Defined in: [src/services/transaction/transaction-context.service.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/transaction/transaction-context.service.ts#L11)
+Defined in: [src/services/transaction/transaction-context.service.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/transaction/transaction-context.service.ts#L11)
 
 #### Returns
 
@@ -48,7 +48,7 @@ Defined in: [src/services/transaction/transaction-context.service.ts:11](https:/
 
 > `static` **run**\<`T`\>(`manager`, `fn`): `Promise`\<`T`\>
 
-Defined in: [src/services/transaction/transaction-context.service.ts:31](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/transaction/transaction-context.service.ts#L31)
+Defined in: [src/services/transaction/transaction-context.service.ts:31](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/transaction/transaction-context.service.ts#L31)
 
 #### Type Parameters
 
@@ -76,7 +76,7 @@ Defined in: [src/services/transaction/transaction-context.service.ts:31](https:/
 
 > `static` **setFallbackManager**(`manager`): `void`
 
-Defined in: [src/services/transaction/transaction-context.service.ts:7](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/transaction/transaction-context.service.ts#L7)
+Defined in: [src/services/transaction/transaction-context.service.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/transaction/transaction-context.service.ts#L7)
 
 #### Parameters
 

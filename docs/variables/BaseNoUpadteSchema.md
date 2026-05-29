@@ -8,4 +8,4 @@
 
 > `const` **BaseNoUpadteSchema**: `ZodObject`\<\{ `createdAt`: `ZodOptional`\<`ZodISODateTime`\>; `id`: `ZodNumber`; `uuid`: `ZodUUID`; \}, `$strip`\>
 
-Defined in: [src/database/domain/base.schema.ts:3](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/database/domain/base.schema.ts#L3)
+Defined in: [src/database/domain/base.schema.ts:3](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/database/domain/base.schema.ts#L3)

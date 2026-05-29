@@ -6,7 +6,7 @@
 
 # Class: AdvancedCacheModule
 
-Defined in: [src/services/advanced-cache/advanced-cache.module.ts:16](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.module.ts#L16)
+Defined in: [src/services/advanced-cache/advanced-cache.module.ts:16](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.module.ts#L16)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.module.ts:16](https://gi
 
 > `static` **register**(`options`): `DynamicModule`
 
-Defined in: [src/services/advanced-cache/advanced-cache.module.ts:17](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.module.ts#L17)
+Defined in: [src/services/advanced-cache/advanced-cache.module.ts:17](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.module.ts#L17)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [src/services/advanced-cache/advanced-cache.module.ts:17](https://gi
 
 > `static` **registerAsync**(`options`): `DynamicModule`
 
-Defined in: [src/services/advanced-cache/advanced-cache.module.ts:46](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-cache/advanced-cache.module.ts#L46)
+Defined in: [src/services/advanced-cache/advanced-cache.module.ts:46](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-cache/advanced-cache.module.ts#L46)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Class: AllExceptionsFilter
 
-Defined in: [src/filters/all-exceptions.filter.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/filters/all-exceptions.filter.ts#L11)
+Defined in: [src/filters/all-exceptions.filter.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/filters/all-exceptions.filter.ts#L11)
 
 ## Implements
 
@@ -18,7 +18,7 @@ Defined in: [src/filters/all-exceptions.filter.ts:11](https://github.com/Miniwe/
 
 > **new AllExceptionsFilter**(`errorService`): `AllExceptionsFilter`
 
-Defined in: [src/filters/all-exceptions.filter.ts:12](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/filters/all-exceptions.filter.ts#L12)
+Defined in: [src/filters/all-exceptions.filter.ts:12](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/filters/all-exceptions.filter.ts#L12)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/filters/all-exceptions.filter.ts:12](https://github.com/Miniwe/
 
 > **catch**(`exception`, `host`): `void`
 
-Defined in: [src/filters/all-exceptions.filter.ts:14](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/filters/all-exceptions.filter.ts#L14)
+Defined in: [src/filters/all-exceptions.filter.ts:14](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/filters/all-exceptions.filter.ts#L14)
 
 Method to implement a custom exception filter.
 

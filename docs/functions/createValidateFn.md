@@ -8,7 +8,7 @@
 
 > **createValidateFn**\<`T`\>(`extendedSchema`): (`config`) => `$InferObjectOutput`\<`T`, \{ \}\>
 
-Defined in: [src/config/env.config.ts:17](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/config/env.config.ts#L17)
+Defined in: [src/config/env.config.ts:17](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/config/env.config.ts#L17)
 
 ФАБРИКА ВАЛИДАЦИИ
 Принимает расширенную схему из приложения и возвращает функцию для ConfigModule.forRoot({ validate })

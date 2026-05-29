@@ -6,7 +6,7 @@
 
 # Class: ColumnDateTransformer
 
-Defined in: [src/transformers/date.transformer.ts:3](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/transformers/date.transformer.ts#L3)
+Defined in: [src/transformers/date.transformer.ts:3](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/transformers/date.transformer.ts#L3)
 
 ## Implements
 
@@ -28,7 +28,7 @@ Defined in: [src/transformers/date.transformer.ts:3](https://github.com/Miniwe/n
 
 > **from**(`value?`): `Date` \| `null`
 
-Defined in: [src/transformers/date.transformer.ts:16](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/transformers/date.transformer.ts#L16)
+Defined in: [src/transformers/date.transformer.ts:16](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/transformers/date.transformer.ts#L16)
 
 Used to unmarshal data when reading from the database.
 
@@ -52,7 +52,7 @@ Used to unmarshal data when reading from the database.
 
 > **to**(`value?`): `Date` \| `null`
 
-Defined in: [src/transformers/date.transformer.ts:4](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/transformers/date.transformer.ts#L4)
+Defined in: [src/transformers/date.transformer.ts:4](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/transformers/date.transformer.ts#L4)
 
 Used to marshal data when writing to the database.
 

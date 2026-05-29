@@ -6,7 +6,7 @@
 
 # Interface: BaseServiceOptions
 
-Defined in: src/services/base.service/base.service.ts:31
+Defined in: [src/services/base.service/base.service.ts:29](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L29)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: src/services/base.service/base.service.ts:31
 
 > `optional` **audit?**: `boolean`
 
-Defined in: src/services/base.service/base.service.ts:33
+Defined in: [src/services/base.service/base.service.ts:31](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L31)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: src/services/base.service/base.service.ts:33
 
 > `optional` **softDelete?**: `boolean`
 
-Defined in: src/services/base.service/base.service.ts:32
+Defined in: [src/services/base.service/base.service.ts:30](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/base.service/base.service.ts#L30)

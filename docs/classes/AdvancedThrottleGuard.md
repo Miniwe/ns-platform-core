@@ -6,7 +6,7 @@
 
 # Class: AdvancedThrottleGuard
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:31](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.guard.ts#L31)
+Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:31](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.guard.ts#L31)
 
 ## Implements
 
@@ -18,7 +18,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:31](https
 
 > **new AdvancedThrottleGuard**(`reflector`, `cacheService`, `options?`): `AdvancedThrottleGuard`
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:35](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.guard.ts#L35)
+Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:35](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.guard.ts#L35)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:35](https
 
 > **canActivate**(`context`): `Promise`\<`boolean`\>
 
-Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:52](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/services/advanced-throttle/advanced-throttle.guard.ts#L52)
+Defined in: [src/services/advanced-throttle/advanced-throttle.guard.ts:52](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/services/advanced-throttle/advanced-throttle.guard.ts#L52)
 
 Main entry point for NestJS guard pipeline.
 

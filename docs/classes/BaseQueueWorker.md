@@ -6,7 +6,7 @@
 
 # Abstract Class: BaseQueueWorker\<T, R\>
 
-Defined in: [src/queues/base-queue.worker.ts:10](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/queues/base-queue.worker.ts#L10)
+Defined in: [src/queues/base-queue.worker.ts:10](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/queues/base-queue.worker.ts#L10)
 
 Базовый класс для всех воркеров очередей.
 T - тип данных задачи (Job Data), по умолчанию безопасный объект
@@ -46,7 +46,7 @@ R - тип возвращаемого результата
 
 > `abstract` **handle**(`job`): `Promise`\<`R`\>
 
-Defined in: [src/queues/base-queue.worker.ts:19](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/queues/base-queue.worker.ts#L19)
+Defined in: [src/queues/base-queue.worker.ts:19](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/queues/base-queue.worker.ts#L19)
 
 Основной метод бизнес-логики, который должны реализовать наследники.
 
@@ -66,7 +66,7 @@ Defined in: [src/queues/base-queue.worker.ts:19](https://github.com/Miniwe/ns-pl
 
 > **process**(`job`, `_token?`): `Promise`\<`R`\>
 
-Defined in: [src/queues/base-queue.worker.ts:26](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/queues/base-queue.worker.ts#L26)
+Defined in: [src/queues/base-queue.worker.ts:26](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/queues/base-queue.worker.ts#L26)
 
 Точка входа BullMQ.
 

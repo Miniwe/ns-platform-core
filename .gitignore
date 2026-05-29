@@ -119,8 +119,12 @@ opsstack/data/*
 # ============================================================================
 # QA artifacts
 # ============================================================================
-qa/allure-reports/**/*
-qa/allure-results/**/*
+allure-report/*
+!allure-report/index.html
+allure-results/*.json
+!allure-results/categories.json
+!allure-results/executor.json
+
 
 # ============================================================================
 # Optional local helper files

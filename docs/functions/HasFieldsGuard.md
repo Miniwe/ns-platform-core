@@ -8,7 +8,7 @@
 
 > **HasFieldsGuard**\<`T`\>(`obj`, `keys`): `obj is T`
 
-Defined in: [src/guards/has-fields.guard.ts:1](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/guards/has-fields.guard.ts#L1)
+Defined in: [src/guards/has-fields.guard.ts:1](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/guards/has-fields.guard.ts#L1)
 
 ## Type Parameters
 

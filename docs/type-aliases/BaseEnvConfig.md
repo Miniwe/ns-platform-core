@@ -8,4 +8,4 @@
 
 > **BaseEnvConfig** = `z.infer`\<*typeof* [`baseEnvSchema`](../variables/baseEnvSchema.md)\>
 
-Defined in: [src/config/env.config.ts:11](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/config/env.config.ts#L11)
+Defined in: [src/config/env.config.ts:11](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/config/env.config.ts#L11)

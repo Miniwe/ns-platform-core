@@ -6,7 +6,7 @@
 
 # Class: LibConfigService\<T\>
 
-Defined in: [src/config/env.config.ts:36](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/config/env.config.ts#L36)
+Defined in: [src/config/env.config.ts:36](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/config/env.config.ts#L36)
 
 СТРОГО ТИПИЗИРОВАННЫЙ СЕРВИС
 
@@ -50,7 +50,7 @@ Defined in: node\_modules/@nestjs/config/dist/config.service.d.ts:36
 
 > **get** **isProduction**(): `boolean`
 
-Defined in: [src/config/env.config.ts:40](https://github.com/Miniwe/ns-platform-core/blob/a126d8650d697c693acff88ffc68008bea10e330/src/config/env.config.ts#L40)
+Defined in: [src/config/env.config.ts:40](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/config/env.config.ts#L40)
 
 ##### Returns
 

@@ -1,5 +1,5 @@
 // advanced-throttle.schema.spec.ts
-import { parseRateLimitConfig, RateLimitConfigSchema } from './advanced-throttle.schema';
+import { parseRateLimitConfig } from './advanced-throttle.schema';
 
 describe('RateLimitConfigSchema', () => {
   const valid = { windowMs: 60_000, max: 10, message: 'Too many' };

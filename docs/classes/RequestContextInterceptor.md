@@ -6,7 +6,7 @@
 
 # Class: RequestContextInterceptor
 
-Defined in: src/context/request-context.interceptor.ts:7
+Defined in: [src/context/request-context.interceptor.ts:7](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/context/request-context.interceptor.ts#L7)
 
 ## Implements
 
@@ -28,7 +28,7 @@ Defined in: src/context/request-context.interceptor.ts:7
 
 > **intercept**(`context`, `next`): `Observable`\<`unknown`\>
 
-Defined in: src/context/request-context.interceptor.ts:8
+Defined in: [src/context/request-context.interceptor.ts:8](https://github.com/Miniwe/ns-platform-core/blob/750974768ae318de54bebe798d49e38eb283271b/src/context/request-context.interceptor.ts#L8)
 
 Method to implement a custom interceptor.
 
