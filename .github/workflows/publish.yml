@@ -1,14 +1,21 @@
 name: Publish Package
 
+
 on:
-  release:
-    types: [published]
-  push:
+  workflow_run:
+    workflows: ["CI"] # Должно строго совпадать с name в ci.yml
+    types:
+      - completed
     branches:
       - main
+      - master
 
 jobs:
   publish:
+    # КРИТИЧЕСКИ ВАЖНО: запускать только при успешном (success) результате CI
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+
     runs-on: ubuntu-latest
     permissions:
       contents: read
