@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
     "nest",
@@ -30,69 +30,13 @@
     "README.md"
   ],
   "exports": {
-    "./access": {
-      "types": "./dist/access/index.d.ts",
-      "require": "./dist/access/index.js"
-    },
-    "./auth": {
-      "types": "./dist/auth/index.d.ts",
-      "require": "./dist/auth/index.js"
-    },
-    "./config": {
-      "types": "./dist/config/index.d.ts",
-      "require": "./dist/config/index.js"
-    },
-    "./context": {
-      "types": "./dist/context/index.d.ts",
-      "require": "./dist/context/index.js"
-    },
-    "./database": {
-      "types": "./dist/database/index.d.ts",
-      "require": "./dist/database/index.js"
-    },
-    "./filters": {
-      "types": "./dist/filters/index.d.ts",
-      "require": "./dist/filters/index.js"
-    },
-    "./guards": {
-      "types": "./dist/guards/index.d.ts",
-      "require": "./dist/guards/index.js"
-    },
-    "./queues": {
-      "types": "./dist/queues/index.d.ts",
-      "require": "./dist/queues/index.js"
-    },
-    "./schemas": {
-      "types": "./dist/schemas/index.d.ts",
-      "require": "./dist/schemas/index.js"
-    },
-    "./security": {
-      "types": "./dist/security/index.d.ts",
-      "require": "./dist/security/index.js"
-    },
-    "./services": {
-      "types": "./dist/services/index.d.ts",
-      "require": "./dist/services/index.js"
-    },
-    "./transformers": {
-      "types": "./dist/transformers/index.d.ts",
-      "require": "./dist/database/transformers.js"
-    },
-    "./types": {
-      "types": "./dist/types/index.d.ts",
-      "require": "./dist/types/index.js"
-    },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "require": "./dist/utils/index.js"
-    },
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "clean": "rimraf dist coverage allure-results allure-report",
+    "clean": "rimraf dist *.tsbuildinfo coverage allure-results allure-report",
     "build": "tsc -p tsconfig.build.json",
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "lint": "eslint .",
@@ -111,8 +55,8 @@
     "report:generate": "allure generate allure-results -o allure-report --clean",
     "docs": "typedoc",
     "knip": "npx knip",
-    "prepublishOnly": "npm run clean && npm run lint && npm run test:dependencies && npm run test:all && npm run build",
-    "prepare": "husky install"
+    "prepublishOnly": "npm run clean && npm run lint && npm run test:dependencies && npm run test:all && npm run build && npm pack && rm miniwe-ns-platform-core-*.tgz",
+    "husky": "husky install"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
