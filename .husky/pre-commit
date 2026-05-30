@@ -1,8 +1,18 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
-# 1. Изменяем версию только в файлах package.json и package-lock.json (без создания Git-коммита)
-npm version patch --no-git-tag-version
+# 1. Проверяем, что мы НЕ на GitHub Actions
+if [ "$GITHUB_ACTIONS" = "true" ]; then
+  echo "Скрипт пропущен: запуск в GitHub Actions"
+  exit 0
+fi
 
-# 2. Добавляем измененные package.json и package-lock.json в текущий коммит
+# 2. Проверяем, что это не процесс публикации npm (на всякий случай)
+if [ "$npm_config_global" = "true" ] || [ -n "$npm_package_name" ] && [ "$npm_lifecycle_event" = "publish" ]; then
+  echo "Скрипт пропущен: запуск внутри npm publish"
+  exit 0
+fi
+
+# 3. Ваш рабочий код для локального коммита
+npm version patch --no-git-tag-version
 git add package.json package-lock.json
