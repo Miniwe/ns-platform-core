@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
     "nest",
@@ -37,7 +37,7 @@
   },
   "scripts": {
     "clean": "rimraf dist *.tsbuildinfo coverage allure-results allure-report",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -100,6 +100,7 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "fastify": "^5.8.5",
     "globals": "^17.6.0",
+    "husky": "^8.0.0",
     "jest": "^30.4.2",
     "jest-allure2-reporter": "^2.3.0",
     "knip": "^6.14.2",
@@ -108,11 +109,11 @@
     "testcontainers": "^10.28.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.17",
     "tsconfig-paths": "^4.2.0",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.11.0",
     "typescript": "^5.8.0",
-    "typescript-eslint": "^8.60.0",
-    "husky": "^8.0.0"
+    "typescript-eslint": "^8.60.0"
   }
 }
