@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
     "nest",
@@ -30,6 +30,58 @@
     "README.md"
   ],
   "exports": {
+    "./access": {
+      "types": "./dist/access/index.d.ts",
+      "require": "./dist/access/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "require": "./dist/auth/index.js"
+    },
+    "./config": {
+      "types": "./dist/config/index.d.ts",
+      "require": "./dist/config/index.js"
+    },
+    "./context": {
+      "types": "./dist/context/index.d.ts",
+      "require": "./dist/context/index.js"
+    },
+    "./database": {
+      "types": "./dist/database/index.d.ts",
+      "require": "./dist/database/index.js"
+    },
+    "./filters": {
+      "types": "./dist/filters/index.d.ts",
+      "require": "./dist/filters/index.js"
+    },
+    "./guards": {
+      "types": "./dist/guards/index.d.ts",
+      "require": "./dist/guards/index.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas/index.d.ts",
+      "require": "./dist/schemas/index.js"
+    },
+    "./security": {
+      "types": "./dist/security/index.d.ts",
+      "require": "./dist/security/index.js"
+    },
+    "./services": {
+      "types": "./dist/services/index.d.ts",
+      "require": "./dist/services/index.js"
+    },
+    "./transformers": {
+      "types": "./dist/transformers/index.d.ts",
+      "require": "./dist/transformers/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/types/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "require": "./dist/utils/index.js"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js"
