@@ -1,5 +1,5 @@
 {
-  "include": [".github/workflows", "package.json"],
+  "include": ["src/services/transaction"],
   "output": {
     "filePath": "analysis-output.xml",
     "style": "xml"

@@ -23,7 +23,7 @@ export interface AdvancedCacheModuleAsyncOptions
   useExisting?: Type<AdvancedCacheOptionsFactory>;
   useClass?: Type<AdvancedCacheOptionsFactory>;
   useFactory?: (
-    ...args: unknown[]
+    ...args: any[]
   ) => Promise<AdvancedCacheModuleOptions> | AdvancedCacheModuleOptions;
   inject?: (InjectionToken | OptionalFactoryDependency)[];
 }
