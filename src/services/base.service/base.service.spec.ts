@@ -3,6 +3,8 @@ import type { EntityManager, Repository } from 'typeorm';
 import { BaseService } from '.';
 import { TransactionContext } from '../transaction';
 
+jest.mock('dataloader');
+
 type TestEntity = {
   id: number;
   uuid: string;
