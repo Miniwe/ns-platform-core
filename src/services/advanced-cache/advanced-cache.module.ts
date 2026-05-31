@@ -11,21 +11,29 @@ import type {
   AdvancedCacheOptionsFactory,
 } from './types';
 
+@Module({})
+class AdvancedCacheOptionsModule {}
+
 @Global()
 @Module({})
 export class AdvancedCacheModule {
   static register(options: AdvancedCacheModuleOptions): DynamicModule {
-    const optionsProvider: Provider = {
-      provide: ADVANCED_CACHE_OPTIONS,
-      useValue: options,
+    const optionsModule: DynamicModule = {
+      module: AdvancedCacheOptionsModule,
+      providers: [
+        {
+          provide: ADVANCED_CACHE_OPTIONS,
+          useValue: options,
+        },
+      ],
+      exports: [ADVANCED_CACHE_OPTIONS],
     };
 
-    const redisClientProvider = this.createRedisClientProvider();
     const cacheModule = CacheModule.registerAsync({
+      imports: [optionsModule],
       inject: [ADVANCED_CACHE_OPTIONS],
       useFactory: async (opts: AdvancedCacheModuleOptions) => ({
-        isGlobal: true,
-        ttl: opts.ttl ?? 60 * 60 * 1000,
+        ttl: opts.ttl ?? 60 * 60,
         stores: [
           createKeyv(this.buildRedisUrl(opts), {
             namespace: opts.namespace ?? 'platform-core-cache',
@@ -34,10 +42,12 @@ export class AdvancedCacheModule {
       }),
     });
 
+    const redisClientProvider = this.createRedisClientProvider();
+
     return {
       module: AdvancedCacheModule,
-      imports: [cacheModule],
-      providers: [optionsProvider, redisClientProvider, AdvancedCacheService],
+      imports: [optionsModule, cacheModule],
+      providers: [redisClientProvider, AdvancedCacheService],
       exports: [AdvancedCacheService, REDIS_CLIENT, CacheModule],
       global: true,
     };
@@ -45,14 +55,19 @@ export class AdvancedCacheModule {
 
   static registerAsync(options: AdvancedCacheModuleAsyncOptions): DynamicModule {
     const asyncOptionsProviders = this.createAsyncProviders(options);
-    const redisClientProvider = this.createRedisClientProvider();
+
+    const optionsModule: DynamicModule = {
+      module: AdvancedCacheOptionsModule,
+      imports: options.imports ?? [],
+      providers: [...asyncOptionsProviders],
+      exports: [ADVANCED_CACHE_OPTIONS],
+    };
 
     const cacheModule = CacheModule.registerAsync({
-      imports: options.imports ?? [],
+      imports: [optionsModule],
       inject: [ADVANCED_CACHE_OPTIONS],
       useFactory: async (opts: AdvancedCacheModuleOptions) => ({
-        isGlobal: true,
-        ttl: opts.ttl ?? 60 * 60 * 1000,
+        ttl: opts.ttl ?? 60 * 60,
         stores: [
           createKeyv(this.buildRedisUrl(opts), {
             namespace: opts.namespace ?? 'platform-core-cache',
@@ -61,10 +76,12 @@ export class AdvancedCacheModule {
       }),
     });
 
+    const redisClientProvider = this.createRedisClientProvider();
+
     return {
       module: AdvancedCacheModule,
-      imports: [...(options.imports ?? []), cacheModule],
-      providers: [...asyncOptionsProviders, redisClientProvider, AdvancedCacheService],
+      imports: [optionsModule, cacheModule],
+      providers: [redisClientProvider, AdvancedCacheService],
       exports: [AdvancedCacheService, REDIS_CLIENT, CacheModule],
       global: true,
     };
@@ -120,7 +137,6 @@ export class AdvancedCacheModule {
 
   private static buildRedisUrl(options: AdvancedCacheModuleOptions): string {
     const auth = options.password ? `:${encodeURIComponent(options.password)}@` : '';
-
     return `redis://${auth}${options.host}:${options.port}/${options.db ?? 0}`;
   }
 }
