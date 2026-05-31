@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@miniwe'
@@ -36,7 +36,6 @@ jobs:
         run: npm ci
 
       - name: Run Tests & Build
-        # Исправляем опечатку из prepublishOnly, выполняя команды напрямую
         run: |
           npm run clean
           npm run lint

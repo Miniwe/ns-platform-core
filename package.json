@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
     "nest",
@@ -88,9 +88,11 @@
     }
   },
   "scripts": {
-    "clean": "rimraf dist *.tsbuildinfo coverage allure-results allure-report package-lock.json node_modules",
+    "clean": "rimraf dist *.tsbuildinfo coverage allure-results allure-report",
+    "cleanPrePublish": "npm run clean && rimraf package-lock.json node_modules",
     "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "build:watch": "tsc -p tsconfig.build.json --watch",
+    "noemit": "npx tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "npm run test:unit",
@@ -107,7 +109,7 @@
     "report:generate": "allure generate allure-results -o allure-report --clean",
     "docs": "typedoc",
     "knip": "npx knip",
-    "prepublishOnly": "npm run clean && npm install && npm run lint && npm run test:dependencies && npm run test:all && npm run build && npm pack && rm miniwe-ns-platform-core-*.tgz",
+    "prepublishOnly": "npm run cleanPrePublish && npm install && npm run lint && npm run test:dependencies && npm run test:all && npm run build && npm pack && rm miniwe-ns-platform-core-*.tgz",
     "husky": "husky install"
   },
   "peerDependencies": {
