@@ -15,6 +15,8 @@ import {
   ObjectLiteral,
   EntityManager,
   FindManyOptions,
+  FindOptionsRelations,
+  FindOptionsSelect,
 } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 import { ErrorContext, ErrorHandlingService } from '../error-handling';
@@ -73,7 +75,9 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     try {
       const record = await this.repository.findOne({
         where: { uuid } as never,
-        select: ['id'] as string[],
+        select: {
+          id: true,
+        } as unknown as FindOptionsSelect<T>,
       });
 
       return record?.id ?? null;
@@ -86,7 +90,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
   /**
    * Поиск сущности по внешнему UUID.
    */
-  async findByExternalId(uuid: string, relations?: string[]): Promise<T> {
+  async findByExternalId(uuid: string, relations?: FindOptionsRelations<T>): Promise<T> {
     const id = await this.resolveInternalId(uuid);
 
     if (!id) {
@@ -159,7 +163,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     }
   }
 
-  async findOne(id: number, relations?: string[]): Promise<T> {
+  async findOne(id: number, relations?: FindOptionsRelations<T>) {
     try {
       this.logInfo('Finding record by ID', { entityId: id, data: { relations } });
 

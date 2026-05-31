@@ -102,7 +102,7 @@ describe('BaseService', () => {
       await expect(service.resolveInternalId(entity.uuid)).resolves.toBe(7);
       expect(repository.findOne).toHaveBeenCalledWith({
         where: { uuid: entity.uuid },
-        select: ['id'],
+        select: { id: true },
       });
     });
 

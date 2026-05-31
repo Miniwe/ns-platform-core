@@ -1,5 +1,4 @@
 import type { DataSourceOptions } from 'typeorm';
-import type { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 export type PostgresRuntimeConfig = {
   host: string;
@@ -34,5 +33,5 @@ export function buildPostgresTypeOrmConfig(
     synchronize: options.synchronize ?? false,
     migrationsRun: options.migrationsRun ?? false,
     logging: options.logging ?? false,
-  } satisfies PostgresConnectionOptions;
+  };
 }

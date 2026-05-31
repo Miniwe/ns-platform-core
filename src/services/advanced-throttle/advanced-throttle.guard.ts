@@ -23,7 +23,7 @@ import { Injectable, CanActivate, ExecutionContext,
          HttpException, HttpStatus, Inject, Optional } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import type { HttpRequestLike } from '@/security';
-import { THROTTLE_MODULE_OPTIONS, ThrottleModuleOptions } from './types'; // вынесем интерфейс
+import { THROTTLE_MODULE_OPTIONS, type ThrottleModuleOptions } from './types'; // вынесем интерфейс
 import { AdvancedCacheService } from '../advanced-cache/advanced-cache.service';
 import { RateLimitConfig } from './domain'; // вынесем интерфейс
 

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "emitDecoratorMetadata": true,
@@ -7,7 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,
-    "module": "commonjs",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "outDir": "./dist",
@@ -17,6 +18,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES2023",
+    "types": ["node", "jest"],
     "paths": {
       "@/*": ["./src/*"],
       "@/qa/*": ["./qa/*"],
