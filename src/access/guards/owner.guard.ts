@@ -3,11 +3,12 @@ import {
   ExecutionContext,
   ForbiddenException,
   Injectable,
+  Optional,
 } from '@nestjs/common';
 
 @Injectable()
 export class OwnerGuard implements CanActivate {
-  constructor(private readonly paramName = 'id') {}
+  constructor(@Optional() private readonly paramName = 'id') {}
 
   canActivate(context: ExecutionContext): boolean {
     const request = context.switchToHttp().getRequest<{
