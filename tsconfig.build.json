@@ -5,8 +5,23 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "qa", "allure-results", "allure-report", "docs", "fixtures", "test", "dist", "**/*spec.ts"]
+  "exclude": [
+    "node_modules",
+    "package.json",
+    "qa",
+    "allure-results",
+    "allure-report",
+    "docs",
+    "fixtures",
+    "test",
+    "dist",
+    "**/*spec.ts"
+  ],
+
+  "watchOptions": {
+    "excludeFiles": ["package.json"],
+    "excludeDirectories": ["node_modules", "dist", "qa", "allure-results", "allure-report"]
+  }
 }

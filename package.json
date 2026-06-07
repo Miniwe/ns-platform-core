@@ -1,6 +1,7 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.1.7",
+  "version": "1.1.8",
+  "devbuild": "17",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
     "nest",
@@ -91,7 +92,8 @@
     "clean": "rimraf dist *.tsbuildinfo coverage allure-results allure-report",
     "cleanPrePublish": "npm run clean && rimraf package-lock.json node_modules",
     "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "build:watch": "tsc-watch -p tsconfig.build.json --onSuccess \"tsc-alias -p tsconfig.build.json\"",
+    "build:watch": "tsc-watch -p tsconfig.build.json --onSuccess \"npm run fix-dev\"",
+    "fix-dev": "tsc-alias -p tsconfig.build.json && node scripts/increment-build.js",
     "noemit": "npx tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
