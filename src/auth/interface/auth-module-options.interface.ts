@@ -1,5 +1,6 @@
+import { RequestUser } from '@/security';
 import type { ModuleMetadata, Type } from '@nestjs/common';
-import type { RequestUser } from '@/security/schemas/request-user.schema';
+import type { SignOptions } from 'jsonwebtoken';
 
 export interface AuthUserLike {
   id: number;
@@ -21,8 +22,8 @@ export interface AuthUsersServicePort<TUser extends AuthUserLike = AuthUserLike>
 
 export interface AuthModuleOptions<TUser extends AuthUserLike = AuthUserLike> {
   jwtSecret: string;
-  accessExpiresIn?: string;
-  refreshExpiresIn?: string;
+  accessExpiresIn?: SignOptions['expiresIn'];
+  refreshExpiresIn?: SignOptions['expiresIn'];
   userEntity: Type<TUser>;
   usersServiceToken: string | symbol | Type<AuthUsersServicePort<TUser>>;
   mapUserToRequestUser?: (user: TUser) => RequestUser;
