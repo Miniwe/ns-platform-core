@@ -1,4 +1,4 @@
-import type { DataSourceOptions } from 'typeorm';
+import type { DataSourceOptions, EntitySchema, MixedList } from 'typeorm';
 
 export type PostgresRuntimeConfig = {
   host: string;
@@ -8,8 +8,11 @@ export type PostgresRuntimeConfig = {
   database: string;
 };
 
+type EntityClass = new (...args: any[]) => any;
+type EntityTarget = string | EntityClass | EntitySchema;
+
 export type TypeOrmBuildOptions = {
-  entities?: string[];
+  entities?: MixedList<EntityTarget>;
   migrations?: string[];
   logging?: boolean;
   synchronize?: boolean;

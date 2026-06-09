@@ -6,38 +6,29 @@ import { TransactionService } from './transaction.service';
 export interface TransactionalOptions {
   /** Включить эксклюзивную блокировку pg_advisory_xact_lock по userId из текущего контекста запроса */
   lockByUser?: boolean;
-}
-
-/**
- * Интерфейс описывает структуру класса, в котором может быть использован декоратор.
- * Класс обязан иметь свойство transactionService.
- */
-interface TransactionalHost {
-  transactionService: TransactionService;
+  serviceKey?: string;
 }
 
 export function Transactional(options?: TransactionalOptions) {
-  return function <T extends TransactionalHost, A extends unknown[], R>(
+  return function <T extends Record<string, any>, A extends unknown[], R>(
     _target: object,
     _propertyKey: string | symbol,
     descriptor: TypedPropertyDescriptor<(...args: A) => Promise<R>>,
-  ): TypedPropertyDescriptor<(...args: A) => Promise<R>> | void {
+  ) {
     const originalMethod = descriptor.value;
+    if (!originalMethod) return descriptor;
 
-    if (!originalMethod) {
-      return descriptor;
-    }
-
-    // Используем 'this: T' для явного указания типа контекста выполнения
     descriptor.value = async function (this: T, ...args: A): Promise<R> {
-      if (!this.transactionService) {
+      const serviceKey = options?.serviceKey ?? 'transactionService';
+      const transactionService = this[serviceKey] as TransactionService | undefined;
+
+      if (!transactionService) {
         throw new Error(
-          `TransactionService must be injected as "transactionService" in ${this.constructor.name}`,
+          `TransactionService must be injected as "${serviceKey}" in ${this.constructor.name}`,
         );
       }
 
-      // Передаем опции (включая autoLockByUser) в обновленный метод runInTransaction
-      return this.transactionService.runInTransaction(() => originalMethod.apply(this, args), {
+      return transactionService.runInTransaction(() => originalMethod.apply(this, args), {
         autoLockByUser: options?.lockByUser,
       });
     };

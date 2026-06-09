@@ -1,2 +1,5 @@
 export const IS_PUBLIC_KEY = Symbol('IS_PUBLIC_KEY');
 export const RESOLVE_RESOURCE_KEY = Symbol('RESOLVE_RESOURCE_KEY');
+
+export const AUTH_MODULE_OPTIONS = Symbol('AUTH_MODULE_OPTIONS');
+export const AUTH_USER_ENTITY = Symbol('AUTH_USER_ENTITY');
