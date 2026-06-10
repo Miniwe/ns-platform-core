@@ -5,7 +5,7 @@ import type { SignOptions } from 'jsonwebtoken';
 export interface AuthUserLike {
   id: number;
   uuid: string;
-  email: string;
+  email?: string;
   username?: string;
   password?: string;
   refreshToken?: string;
@@ -30,10 +30,8 @@ export interface AuthModuleOptions<TUser extends AuthUserLike = AuthUserLike> {
   global?: boolean;
 }
 
-export interface AuthModuleAsyncOptions<TUser extends AuthUserLike = AuthUserLike> extends Pick<
-  ModuleMetadata,
-  'imports'
-> {
+export interface AuthModuleAsyncOptions<TUser extends AuthUserLike = AuthUserLike>
+  extends Pick<ModuleMetadata, 'imports'> {
   inject?: any[];
   useFactory: (...args: any[]) => Promise<AuthModuleOptions<TUser>> | AuthModuleOptions<TUser>;
   global?: boolean;
