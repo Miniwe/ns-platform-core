@@ -3,3 +3,4 @@ export const RESOLVE_RESOURCE_KEY = Symbol('RESOLVE_RESOURCE_KEY');
 
 export const AUTH_MODULE_OPTIONS = Symbol('AUTH_MODULE_OPTIONS');
 export const AUTH_USER_ENTITY = Symbol('AUTH_USER_ENTITY');
+export const AUTH_USERS_SERVICE = Symbol('AUTH_USERS_SERVICE');

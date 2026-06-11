@@ -39,6 +39,9 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     @Inject(ErrorHandlingService)
     protected readonly errorHandling?: ErrorHandlingService,
   ) {
+    if (!repository)
+      throw new Error(`BaseService: repository is undefined for ${this.constructor.name}`);
+
     this.loader = new DataLoader<number, T | Error>(async (keys: readonly number[]) => {
       const ids = Array.from(keys);
       const records = await this.repository.findBy({ id: In(ids) } as never);
@@ -54,6 +57,16 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
 
   protected getManager(): EntityManager {
     return TransactionContext.getManager() ?? this.repository.manager;
+  }
+
+  async findOne(options: FindOneOptions<T>): Promise<T | null> {
+    try {
+      this.logInfo('Finding one record', { data: options });
+      return await this.repository.findOne(options);
+    } catch (error) {
+      this.logError(error, { componentMethod: 'findOne', data: options });
+      throw error;
+    }
   }
 
   protected getLoggerContext(): string {
@@ -137,16 +150,6 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
 
   async findAll(options?: FindManyOptions<T>): Promise<T[]> {
     return this.findMany(options);
-  }
-
-  async findOne(options: FindOneOptions<T>): Promise<T | null> {
-    try {
-      this.logInfo('Finding one record', { data: options });
-      return await this.repository.findOne(options);
-    } catch (error) {
-      this.logError(error, { componentMethod: 'findOne', data: options });
-      throw error;
-    }
   }
 
   async findOneOrFail(options: FindOneOptions<T>): Promise<T> {
