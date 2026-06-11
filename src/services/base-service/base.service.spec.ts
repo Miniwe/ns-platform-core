@@ -134,18 +134,19 @@ describe('BaseService', () => {
   describe('findByExternalId', () => {
     it('returns entity resolved from uuid', async () => {
       jest.spyOn(service, 'resolveInternalId').mockResolvedValue(1);
-      jest.spyOn(service, 'findOne').mockResolvedValue(entity);
+      jest.spyOn(service, 'findByIdOrFail').mockResolvedValue(entity);
 
       await expect(service.findByExternalId(entity.uuid)).resolves.toEqual(entity);
     });
 
-    it('passes relations to findOne', async () => {
+    it('passes relations to findByIdOrFail', async () => {
       const relations = { profile: true } as any;
       jest.spyOn(service, 'resolveInternalId').mockResolvedValue(1);
-      const findOneSpy = jest.spyOn(service, 'findOne').mockResolvedValue(entity);
+      const findByIdOrFailSpy = jest.spyOn(service, 'findByIdOrFail').mockResolvedValue(entity);
 
       await service.findByExternalId(entity.uuid, relations);
-      expect(findOneSpy).toHaveBeenCalledWith({ id: 1 }, relations);
+
+      expect(findByIdOrFailSpy).toHaveBeenCalledWith(1, { relations });
     });
 
     it('throws NotFoundException when uuid is missing', async () => {
@@ -157,25 +158,30 @@ describe('BaseService', () => {
   });
 
   describe('findOne', () => {
-    it('returns entity by id', async () => {
+    it('returns entity by options', async () => {
       repository.findOne.mockResolvedValue(entity);
 
-      await expect(service.findOne({ id: 1 })).resolves.toEqual(entity);
+      await expect(service.findOne({ where: { id: 1 } })).resolves.toEqual(entity);
+      expect(repository.findOne).toHaveBeenCalledWith({ where: { id: 1 } });
     });
 
-    it('passes relations to repository', async () => {
+    it('passes full options to repository', async () => {
       repository.findOne.mockResolvedValue(entity);
-      const relations = { profile: true } as any;
+      const options = {
+        where: { id: 1 },
+        relations: { profile: true },
+      } as any;
 
-      await service.findOne({ id: 1 }, relations);
-      expect(repository.findOne).toHaveBeenCalledWith({ where: { id: 1 }, relations });
+      await service.findOne(options);
+
+      expect(repository.findOne).toHaveBeenCalledWith(options);
     });
 
-    it('throws NotFoundException when entity does not exist', async () => {
+    it('returns null when entity does not exist', async () => {
       repository.findOne.mockResolvedValue(null);
 
-      await expect(service.findOne({ id: 1 })).rejects.toThrow(NotFoundException);
-      expect(errorHandling.logWarn).toHaveBeenCalled();
+      await expect(service.findOne({ where: { id: 1 } })).resolves.toBeNull();
+      expect(errorHandling.logWarn).not.toHaveBeenCalled();
       expect(errorHandling.handleError).not.toHaveBeenCalled();
     });
 
@@ -183,8 +189,23 @@ describe('BaseService', () => {
       const error = new Error('findOne failed');
       repository.findOne.mockRejectedValue(error);
 
-      await expect(service.findOne({ id: 1 })).rejects.toThrow(error);
+      await expect(service.findOne({ where: { id: 1 } })).rejects.toThrow(error);
       expect(errorHandling.handleError).toHaveBeenCalled();
+    });
+  });
+
+  describe('findOneOrFail', () => {
+    it('returns entity when found', async () => {
+      jest.spyOn(service, 'findOne').mockResolvedValue(entity);
+
+      await expect(service.findOneOrFail({ where: { id: 1 } })).resolves.toEqual(entity);
+    });
+
+    it('throws NotFoundException when entity does not exist', async () => {
+      jest.spyOn(service, 'findOne').mockResolvedValue(null);
+
+      await expect(service.findOneOrFail({ where: { id: 1 } })).rejects.toThrow(NotFoundException);
+      expect(errorHandling.logWarn).toHaveBeenCalled();
     });
   });
 
@@ -214,7 +235,7 @@ describe('BaseService', () => {
       repository.create.mockReturnValue(entity);
       repository.save.mockResolvedValue(entity);
 
-      await expect(service.create({ name: 'Alpha' })).resolves.toEqual(entity);
+      await expect(service.create({ name: 'Alpha' } as any)).resolves.toEqual(entity);
       expect(repository.create).toHaveBeenCalledWith({ name: 'Alpha' });
       expect(repository.save).toHaveBeenCalledWith(entity);
     });
@@ -223,17 +244,15 @@ describe('BaseService', () => {
       repository.create.mockReturnValue(entity);
       repository.save.mockRejectedValue(new Error('save failed'));
 
-      await expect(service.create({ name: 'Alpha' })).rejects.toThrow(BadRequestException);
+      await expect(service.create({ name: 'Alpha' } as any)).rejects.toThrow(BadRequestException);
       expect(errorHandling.handleError).toHaveBeenCalled();
     });
   });
 
   describe('update', () => {
     it('updates entity, clears loader and reloads fresh state', async () => {
-      jest
-        .spyOn(service, 'findById')
-        .mockResolvedValueOnce(entity)
-        .mockResolvedValueOnce({ ...entity, name: 'Updated' });
+      jest.spyOn(service, 'findByIdOrFail').mockResolvedValueOnce(entity);
+      jest.spyOn(service, 'findById').mockResolvedValueOnce({ ...entity, name: 'Updated' });
 
       repository.update.mockResolvedValue({ affected: 1 } as any);
 
@@ -249,18 +268,29 @@ describe('BaseService', () => {
       expect(clearSpy).toHaveBeenCalledWith(1);
       expect(primeSpy).toHaveBeenCalledWith(1, { ...entity, name: 'Updated' });
     });
-
     it('throws NotFoundException when entity does not exist before update', async () => {
-      jest.spyOn(service, 'findById').mockResolvedValue(null);
+      jest
+        .spyOn(service, 'findByIdOrFail')
+        .mockRejectedValueOnce(new NotFoundException('TestEntity with ID 1 not found'));
 
-      await expect(service.update(1, { name: 'Updated' } as any)).rejects.toThrow(NotFoundException);
+      await expect(service.update(1, { name: 'Updated' } as any)).rejects.toThrow(
+        NotFoundException,
+      );
     });
 
     it('throws NotFoundException when entity disappears after update', async () => {
-      jest.spyOn(service, 'findById').mockResolvedValueOnce(entity).mockResolvedValueOnce(null);
+      jest
+        .spyOn(service, 'findByIdOrFail')
+        .mockResolvedValueOnce(entity)
+        .mockRejectedValueOnce(
+          new NotFoundException('TestEntity with ID 1 not found after update'),
+        );
+
       repository.update.mockResolvedValue({ affected: 1 } as any);
 
-      await expect(service.update(1, { name: 'Updated' } as any)).rejects.toThrow(NotFoundException);
+      await expect(service.update(1, { name: 'Updated' } as any)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 
@@ -279,7 +309,7 @@ describe('BaseService', () => {
 
   describe('softDelete', () => {
     it('deletes by id and clears loader', async () => {
-      jest.spyOn(service, 'findById').mockResolvedValue(entity);
+      jest.spyOn(service, 'findByIdOrFail').mockResolvedValue(entity);
       repository.softDelete.mockResolvedValue({ affected: 1 } as any);
 
       const clearSpy = jest.spyOn((service as any).loader, 'clear');
@@ -290,7 +320,9 @@ describe('BaseService', () => {
     });
 
     it('throws NotFoundException when entity does not exist', async () => {
-      jest.spyOn(service, 'findById').mockResolvedValue(null);
+      jest
+        .spyOn(service, 'findByIdOrFail')
+        .mockRejectedValue(new NotFoundException('TestEntity with ID 1 not found'));
 
       await expect(service.softDelete(1)).rejects.toThrow(NotFoundException);
     });
@@ -300,13 +332,14 @@ describe('BaseService', () => {
     it('returns existence flag', async () => {
       repository.exists.mockResolvedValue(true);
 
-      await expect(service.exists(1)).resolves.toBe(true);
+      await expect(service.exists({ id: 1 } as any)).resolves.toBe(true);
+      expect(repository.exists).toHaveBeenCalledWith({ where: { id: 1 } });
     });
 
     it('throws BadRequestException when exists fails', async () => {
       repository.exists.mockRejectedValue(new Error('exists failed'));
 
-      await expect(service.exists(1)).rejects.toThrow(BadRequestException);
+      await expect(service.exists({ id: 1 } as any)).rejects.toThrow(BadRequestException);
     });
 
     it('returns total count', async () => {
@@ -358,8 +391,8 @@ describe('BaseService', () => {
   describe('bulk operations', () => {
     it('createMany creates and saves multiple entities', async () => {
       repository.create
-        .mockReturnValueOnce(entity)
-        .mockReturnValueOnce({ ...entity, id: 2, uuid: 'a', name: 'Beta' });
+        .mockReturnValueOnce(entity as any)
+        .mockReturnValueOnce({ ...entity, id: 2, uuid: 'a', name: 'Beta' } as any);
       repository.save.mockResolvedValue([
         entity,
         { ...entity, id: 2, uuid: 'a', name: 'Beta' },
@@ -371,7 +404,7 @@ describe('BaseService', () => {
     });
 
     it('createMany wraps repository errors', async () => {
-      repository.create.mockReturnValue(entity);
+      repository.create.mockReturnValue(entity as any);
       repository.save.mockRejectedValue(new Error('save many failed'));
 
       await expect(service.createMany([{ name: 'Alpha' }] as any)).rejects.toThrow(
@@ -419,6 +452,16 @@ describe('BaseService', () => {
       });
     });
 
+    it('findById passes extra options to manager.findOne', async () => {
+      manager.findOne.mockResolvedValue(entity as any);
+
+      await service.findById(1, { relations: { profile: true } } as any);
+      expect(manager.findOne).toHaveBeenCalledWith(repository.target, {
+        relations: { profile: true },
+        where: { id: 1 },
+      });
+    });
+
     it('findByIdOrFail throws when entity not found', async () => {
       manager.findOne.mockResolvedValue(null);
 
@@ -434,6 +477,16 @@ describe('BaseService', () => {
       });
     });
 
+    it('findByUuid passes extra options to manager.findOne', async () => {
+      manager.findOne.mockResolvedValue(entity as any);
+
+      await service.findByUuid(entity.uuid, { relations: { profile: true } } as any);
+      expect(manager.findOne).toHaveBeenCalledWith(repository.target, {
+        relations: { profile: true },
+        where: { uuid: entity.uuid },
+      });
+    });
+
     it('findByUuidOrFail throws when entity not found', async () => {
       manager.findOne.mockResolvedValue(null);
 
@@ -443,27 +496,27 @@ describe('BaseService', () => {
 
   describe('loader integration', () => {
     it('loadById resolves entity through dataloader batch', async () => {
-      repository.findBy.mockResolvedValue([entity]);
+      repository.findBy.mockResolvedValue([entity] as any);
 
       await expect(service.loadById(1)).resolves.toEqual(entity);
     });
 
     it('loadById returns Error when entity is missing', async () => {
-      repository.findBy.mockResolvedValue([]);
+      repository.findBy.mockResolvedValue([] as any);
 
       const result = await service.loadById(999);
       expect(result).toBeInstanceOf(Error);
     });
 
     it('loadManyByIds returns ordered results', async () => {
-      repository.findBy.mockResolvedValue([entity]);
+      repository.findBy.mockResolvedValue([entity] as any);
 
       const result = await service.loadManyByIds([1]);
       expect(result).toEqual([entity]);
     });
 
     it('loadManyByIds returns errors for missing entities', async () => {
-      repository.findBy.mockResolvedValue([entity]);
+      repository.findBy.mockResolvedValue([entity] as any);
 
       const result = await service.loadManyByIds([1, 2]);
       expect(result[0]).toEqual(entity);

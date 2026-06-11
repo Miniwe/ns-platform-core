@@ -17,14 +17,12 @@ import {
   FindManyOptions,
   FindOptionsRelations,
   FindOptionsSelect,
+  FindOneOptions,
 } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 import { ErrorContext, ErrorHandlingService } from '../error-handling';
 import { TransactionContext } from '../transaction';
 
-/**
- * Контракт для сервисов, поддерживающих конвертацию внешнего UUID во внутренний ID.
- */
 export interface IResourceResolver {
   resolveInternalId(uuid: string): Promise<number | null>;
 }
@@ -44,7 +42,9 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     this.loader = new DataLoader<number, T>(async (keys: readonly number[]) => {
       const ids = Array.from(keys);
       const records = await this.repository.findBy({ id: In(ids) } as never);
-      const recordsMap = new Map(records.map((record) => [record['id'] as number, record]));
+      const recordsMap = new Map<number, T>(
+        records.map((record) => [record['id'] as number, record]),
+      );
 
       return ids.map((id) =>
         recordsMap.has(id)
@@ -54,24 +54,45 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     });
   }
 
-  /**
-   * Возвращает EntityManager из текущего транзакционного контекста
-   * или стандартный manager репозитория.
-   */
   protected getManager(): EntityManager {
     return TransactionContext.getManager() ?? this.repository.manager;
+  }
+
+  protected getLoggerContext(): string {
+    return this.constructor.name;
+  }
+
+  protected getErrorContext(overrides?: Partial<ErrorContext>): ErrorContext {
+    return {
+      service: this.getLoggerContext(),
+      entityName: this.entityName,
+      ...overrides,
+    };
+  }
+
+  protected logError(error: unknown, context?: ErrorContext): void {
+    if (!this.errorHandling) return;
+    this.errorHandling.handleError(error, this.getErrorContext(context), false);
+  }
+
+  protected logWarning(message: string, context?: ErrorContext): void {
+    if (!this.errorHandling) return;
+    this.errorHandling.logWarn(message, this.getErrorContext(context));
+  }
+
+  protected logInfo(message: string, context?: ErrorContext): void {
+    if (!this.errorHandling) return;
+    this.errorHandling.logInfo(message, this.getErrorContext(context));
   }
 
   async resolveInternalId(uuid: string): Promise<number | null> {
     try {
       const record = await this.repository.findOne({
         where: { uuid } as never,
-        select: {
-          id: true,
-        } as unknown as FindOptionsSelect<T>,
+        select: { id: true } as unknown as FindOptionsSelect<T>,
       });
 
-      return record?.id ?? null;
+      return (record?.['id'] as number | undefined) ?? null;
     } catch (error) {
       this.logError(error, { componentMethod: 'resolveInternalId', uuid });
       return null;
@@ -89,106 +110,65 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
       throw new NotFoundException(`${this.entityName} with UUID ${uuid} not found`);
     }
 
-    return this.findOne({ id }, relations);
+    return this.findByIdOrFail(id, { relations });
   }
 
-  async loadById(id: number): Promise<T | Error> {
+  async loadById(id: number): Promise<T> {
     return this.loader.load(id);
   }
 
-  async loadManyByIds(ids: number[]): Promise<Array<T | Error>> {
+  async loadManyByIds(ids: number[]): Promise<(T | Error)[]> {
     return this.loader.loadMany(ids);
   }
 
-  protected getLoggerContext(): string {
-    return this.constructor.name;
-  }
-
-  protected getErrorContext(overrides?: Partial<ErrorContext>): ErrorContext {
-    return {
-      service: this.getLoggerContext(),
-      entityName: this.entityName,
-      ...overrides,
-    };
-  }
-
-  protected logError(error: unknown, context?: ErrorContext): void {
-    if (!this.errorHandling) return;
-
-    const errorContext = this.getErrorContext(context);
-    this.errorHandling.handleError(error, errorContext, false);
-  }
-
-  protected logWarning(message: string, context?: ErrorContext): void {
-    if (!this.errorHandling) return;
-
-    const errorContext = this.getErrorContext(context);
-    this.errorHandling.logWarn(message, errorContext);
-  }
-
-  protected logInfo(message: string, context?: ErrorContext): void {
-    if (!this.errorHandling) return;
-
-    const errorContext = this.getErrorContext(context);
-    this.errorHandling.logInfo(message, errorContext);
-  }
-
-  async findAll(options?: FindManyOptions<T>): Promise<T[]> {
+  async findMany(options?: FindManyOptions<T>): Promise<T[]> {
     try {
-      this.logInfo('Finding all records', { data: options?.where ?? {} });
+      this.logInfo('Finding many records', { data: options?.where ?? {} });
       return await this.repository.find(options);
     } catch (error) {
-      this.logError(error, { componentMethod: 'findAll' });
-
+      this.logError(error, { componentMethod: 'findMany', data: options });
       if (error instanceof Error) {
         throw new BadRequestException(
           `Failed to fetch ${this.entityName} records: ${error.message}`,
         );
       }
-
       throw new BadRequestException('Unknown error');
     }
   }
 
-  async findOne(
-    where: FindOptionsWhere<T> | Record<string, any>,
-    relations?: FindOptionsRelations<T>,
-  ): Promise<T> {
+  async findAll(options?: FindManyOptions<T>): Promise<T[]> {
+    return this.findMany(options);
+  }
+
+  async findOne(options: FindOneOptions<T>): Promise<T | null> {
     try {
-      this.logInfo('Finding record by Where', {
-        entityId: JSON.stringify(where),
-        data: { relations },
-      });
-
-      const entity = await this.repository.findOne({
-        where,
-        relations,
-      });
-
-      if (!entity) {
-        this.logWarning('Record not found by params.', {
-          entityId: JSON.stringify(where),
-          componentMethod: 'findOne',
-        });
-        throw new NotFoundException(`${this.entityName} with ${JSON.stringify(where)} not found`);
-      }
-
-      return entity;
+      this.logInfo('Finding one record', { data: options });
+      return await this.repository.findOne(options);
     } catch (error) {
-      if (!(error instanceof NotFoundException)) {
-        this.logError(error, { entityId: JSON.stringify(where), componentMethod: 'findOne' });
-      }
+      this.logError(error, { componentMethod: 'findOne', data: options });
       throw error;
     }
   }
 
-  async exists(id: number): Promise<boolean> {
-    try {
-      return await this.repository.exists({
-        where: { id } as unknown as FindOptionsWhere<T>,
+  async findOneOrFail(options: FindOneOptions<T>): Promise<T> {
+    const entity = await this.findOne(options);
+
+    if (!entity) {
+      this.logWarning('Record not found by options', {
+        componentMethod: 'findOneOrFail',
+        data: options,
       });
+      throw new NotFoundException(`${this.entityName} not found`);
+    }
+
+    return entity;
+  }
+
+  async exists(where: FindOptionsWhere<T> | FindOptionsWhere<T>[]): Promise<boolean> {
+    try {
+      return await this.repository.exists({ where });
     } catch (error) {
-      this.logError(error, { entityId: id, componentMethod: 'exists' });
+      this.logError(error, { componentMethod: 'exists', data: where });
       throw new BadRequestException(`Failed to check ${this.entityName} existence`);
     }
   }
@@ -197,7 +177,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     try {
       return await this.repository.count(options);
     } catch (error) {
-      this.logError(error, { componentMethod: 'count' });
+      this.logError(error, { componentMethod: 'count', data: options });
       throw new BadRequestException(`Failed to count ${this.entityName} records`);
     }
   }
@@ -208,8 +188,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     options?: FindManyOptions<T>,
   ): Promise<{ data: T[]; total: number; page: number; limit: number }> {
     try {
-      this.logInfo('Finding records with pagination', { page, limit });
-
+      this.logInfo('Finding records with pagination', { page, limit, data: options });
       const [data, total] = await this.repository.findAndCount({
         skip: (page - 1) * limit,
         take: limit,
@@ -222,6 +201,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
         componentMethod: 'findWithPagination',
         page,
         limit,
+        data: options,
       });
       throw new BadRequestException(`Failed to fetch paginated ${this.entityName} records`);
     }
@@ -230,14 +210,11 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
   async createMany(dataArray: DeepPartial<T>[]): Promise<T[]> {
     try {
       this.logInfo('Creating multiple records', { data: { itemsCount: dataArray.length } });
-
       const entities = dataArray.map((data) => this.repository.create(data));
       const result = await this.repository.save(entities);
-
       this.logInfo('Multiple records created successfully', {
         data: { itemsCount: result.length },
       });
-
       return result;
     } catch (error) {
       this.logError(error, {
@@ -251,14 +228,13 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
   async updateMany(ids: number[], data: QueryDeepPartialEntity<T>): Promise<number> {
     try {
       this.logInfo('Updating multiple records', { data: { idsCount: ids.length } });
-
-      const result = await this.repository.update(ids, data);
+      const result = await this.repository.update(ids as never, data);
       const affectedRows = result.affected ?? 0;
-
       this.logInfo('Multiple records updated successfully', {
         data: { affectedRows },
       });
 
+      ids.forEach((id) => this.loader.clear(id));
       return affectedRows;
     } catch (error) {
       this.logError(error, {
@@ -272,8 +248,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
   async removeMany(ids: number[]): Promise<number> {
     try {
       this.logInfo('Deleting multiple records', { data: { idsCount: ids.length } });
-
-      const result = await this.repository.delete(ids);
+      const result = await this.repository.delete(ids as never);
       const deletedCount = result.affected ?? 0;
 
       this.logInfo('Multiple records deleted successfully', {
@@ -281,7 +256,6 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
       });
 
       ids.forEach((id) => this.loader.clear(id));
-
       return deletedCount;
     } catch (error) {
       this.logError(error, {
@@ -296,11 +270,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     try {
       this.logInfo('Soft deleting record', { entityId: id });
 
-      const entity = await this.findById(id);
-      if (!entity) {
-        throw new NotFoundException(`${this.entityName} with ID ${id} not found`);
-      }
-
+      await this.findByIdOrFail(id);
       await this.repository.softDelete(id as never);
       this.loader.clear(id);
 
@@ -311,20 +281,15 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     }
   }
 
-  /**
-   * Поиск сущности по числовому ID.
-   */
-  async findById(id: number): Promise<T | null> {
+  async findById(id: number, options?: Omit<FindOneOptions<T>, 'where'>): Promise<T | null> {
     return this.getManager().findOne(this.repository.target, {
+      ...options,
       where: { id } as unknown as FindOptionsWhere<T>,
     });
   }
 
-  /**
-   * Поиск сущности по ID с выбросом исключения, если не найдена.
-   */
-  async findByIdOrFail(id: number): Promise<T> {
-    const entity = await this.findById(id);
+  async findByIdOrFail(id: number, options?: Omit<FindOneOptions<T>, 'where'>): Promise<T> {
+    const entity = await this.findById(id, options);
 
     if (!entity) {
       throw new NotFoundException(`${this.entityName} with ID ${id} not found`);
@@ -333,20 +298,15 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     return entity;
   }
 
-  /**
-   * Поиск сущности по UUID.
-   */
-  async findByUuid(uuid: string): Promise<T | null> {
+  async findByUuid(uuid: string, options?: Omit<FindOneOptions<T>, 'where'>): Promise<T | null> {
     return this.getManager().findOne(this.repository.target, {
+      ...options,
       where: { uuid } as unknown as FindOptionsWhere<T>,
     });
   }
 
-  /**
-   * Поиск сущности по UUID с гарантированным результатом.
-   */
-  async findByUuidOrFail(uuid: string): Promise<T> {
-    const entity = await this.findByUuid(uuid);
+  async findByUuidOrFail(uuid: string, options?: Omit<FindOneOptions<T>, 'where'>): Promise<T> {
+    const entity = await this.findByUuid(uuid, options);
 
     if (!entity) {
       throw new NotFoundException(`${this.entityName} with UUID ${uuid} not found`);
@@ -355,13 +315,9 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     return entity;
   }
 
-  /**
-   * Создание новой сущности.
-   */
   async create(data: DeepPartial<T>): Promise<T> {
     try {
       this.logInfo('Creating new record', { data });
-
       const entity = this.repository.create(data);
       const savedEntity = await this.repository.save(entity);
 
@@ -372,30 +328,21 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
       return savedEntity;
     } catch (error) {
       this.logError(error, { componentMethod: 'create', data });
-
       if (error instanceof Error) {
         throw new BadRequestException(`Failed to create ${this.entityName}: ${error.message}`);
       }
-
       throw new BadRequestException('Unknown error');
     }
   }
 
-  /**
-   * Обновление существующей сущности.
-   */
   async update(id: number, data: QueryDeepPartialEntity<T>): Promise<T> {
     try {
       this.logInfo('Updating record', { entityId: id, data });
 
-      const entity = await this.findById(id);
+      const entity = await this.findByIdOrFail(id);
+      await this.repository.update((entity as Record<string, any>).id as never, data);
 
-      if (!entity) {
-        throw new NotFoundException(`${this.entityName} with ID ${id} not found`);
-      }
-
-      await this.repository.update(entity.id, data);
-      const updatedEntity = await this.findById(entity.id);
+      const updatedEntity = await this.findById((entity as Record<string, any>).id as number);
 
       if (!updatedEntity) {
         throw new NotFoundException(`${this.entityName} with ID ${id} not found after update`);
@@ -422,9 +369,6 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     }
   }
 
-  /**
-   * Hard delete сущности через manager с поддержкой transaction context.
-   */
   async delete(id: number): Promise<void> {
     const entity = await this.findByIdOrFail(id);
     await this.getManager().remove(entity);
