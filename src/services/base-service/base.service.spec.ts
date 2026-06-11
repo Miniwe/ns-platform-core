@@ -15,10 +15,10 @@ class TestBaseService extends BaseService<TestEntity> {
   protected readonly entityName = 'TestEntity';
 
   constructor(
-    protected readonly repository: Repository<TestEntity>,
+    repository: Repository<TestEntity>,
     errorHandling?: any,
   ) {
-    super(errorHandling);
+    super(repository, errorHandling);
   }
 
   public exposeGetManager() {

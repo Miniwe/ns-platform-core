@@ -30,21 +30,19 @@ export interface IResourceResolver {
 @Injectable()
 export abstract class BaseService<T extends ObjectLiteral> implements IResourceResolver {
   protected readonly logger = new Logger(BaseService.name);
-  protected abstract readonly repository: Repository<T>;
   protected abstract readonly entityName: string;
-  protected loader: DataLoader<number, T>;
+  protected loader: DataLoader<number, T | Error>;
 
   constructor(
+    protected readonly repository: Repository<T>,
     @Optional()
     @Inject(ErrorHandlingService)
     protected readonly errorHandling?: ErrorHandlingService,
   ) {
-    this.loader = new DataLoader<number, T>(async (keys: readonly number[]) => {
+    this.loader = new DataLoader<number, T | Error>(async (keys: readonly number[]) => {
       const ids = Array.from(keys);
       const records = await this.repository.findBy({ id: In(ids) } as never);
-      const recordsMap = new Map<number, T>(
-        records.map((record) => [record['id'] as number, record]),
-      );
+      const recordsMap = new Map(records.map((record) => [record['id'] as number, record]));
 
       return ids.map((id) =>
         recordsMap.has(id)
@@ -113,7 +111,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
     return this.findByIdOrFail(id, { relations });
   }
 
-  async loadById(id: number): Promise<T> {
+  async loadById(id: number): Promise<T | Error> {
     return this.loader.load(id);
   }
 
@@ -132,6 +130,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
           `Failed to fetch ${this.entityName} records: ${error.message}`,
         );
       }
+
       throw new BadRequestException('Unknown error');
     }
   }
@@ -189,6 +188,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
   ): Promise<{ data: T[]; total: number; page: number; limit: number }> {
     try {
       this.logInfo('Finding records with pagination', { page, limit, data: options });
+
       const [data, total] = await this.repository.findAndCount({
         skip: (page - 1) * limit,
         take: limit,
@@ -230,6 +230,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
       this.logInfo('Updating multiple records', { data: { idsCount: ids.length } });
       const result = await this.repository.update(ids as never, data);
       const affectedRows = result.affected ?? 0;
+
       this.logInfo('Multiple records updated successfully', {
         data: { affectedRows },
       });
@@ -331,6 +332,7 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
       if (error instanceof Error) {
         throw new BadRequestException(`Failed to create ${this.entityName}: ${error.message}`);
       }
+
       throw new BadRequestException('Unknown error');
     }
   }
@@ -340,9 +342,9 @@ export abstract class BaseService<T extends ObjectLiteral> implements IResourceR
       this.logInfo('Updating record', { entityId: id, data });
 
       const entity = await this.findByIdOrFail(id);
-      await this.repository.update((entity as Record<string, any>).id as never, data);
+      await this.repository.update((entity as Record<string, unknown>).id as never, data);
 
-      const updatedEntity = await this.findById((entity as Record<string, any>).id as number);
+      const updatedEntity = await this.findById((entity as Record<string, unknown>).id as number);
 
       if (!updatedEntity) {
         throw new NotFoundException(`${this.entityName} with ID ${id} not found after update`);
