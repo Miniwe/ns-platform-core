@@ -1,4 +1,5 @@
 import { RequestUser } from '@/security';
+import { EntityManager } from 'typeorm';
 import type { ModuleMetadata, Type } from '@nestjs/common';
 import type { SignOptions } from 'jsonwebtoken';
 
@@ -18,6 +19,7 @@ export interface AuthUsersServicePort<TUser extends AuthUserLike = AuthUserLike>
   findOne(options: unknown): Promise<TUser | null>;
   update(id: number, payload: Record<string, unknown>): Promise<unknown>;
   findForAuth?(uuid: string): Promise<TUser | null>;
+  assignUserDefaults?(id: number, manager: EntityManager): Promise<unknown>;
 }
 
 export interface AuthModuleOptions<TUser extends AuthUserLike = AuthUserLike> {
