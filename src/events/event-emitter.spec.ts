@@ -37,8 +37,9 @@ describe('TypedEventEmitter', () => {
   describe('emit', () => {
     it('should successfully forward the event and payload to EventEmitter2', () => {
       // Arrange
+      const userId = 1;
       const eventName = BaseEvents.DEFAULT;
-      const eventPayload = new DefaultEvent({ userId: 1 });
+      const eventPayload = new DefaultEvent(userId, { userId });
 
       // Настраиваем мок так, чтобы он возвращал true (как оригинальный эмиттер)
       jest.spyOn(eventEmitter2, 'emit').mockReturnValue(true);
@@ -57,13 +58,15 @@ describe('TypedEventEmitter', () => {
 describe('DefaultEvent', () => {
   it('should initialize with default values if not provided', () => {
     // Arrange
+    const userId = 1;
     const context = { action: 'test' };
     const beforeCreation = new Date();
 
     // Act
-    const event = new DefaultEvent(context);
+    const event = new DefaultEvent(userId, context);
 
     // Assert
+    expect(event.userId).toEqual(userId);
     expect(event.context).toEqual(context);
     expect(event.eventId).toBeDefined();
     expect(typeof event.eventId).toBe('string');
@@ -73,31 +76,34 @@ describe('DefaultEvent', () => {
 
   it('should allow overriding default values in constructor', () => {
     // Arrange
+    const userId = 1;
     const context = 'custom-context';
     const customId = 'custom-nanoid-123';
     const customDate = new Date('2025-01-01T00:00:00.000Z');
 
     // Act
-    const event = new DefaultEvent(context, customId, customDate);
+    const event = new DefaultEvent(userId, context, customId, customDate);
 
     // Assert
+    expect(event.userId).toBe(userId);
     expect(event.context).toBe(context);
     expect(event.eventId).toBe(customId);
     expect(event.occurredAt).toBe(customDate);
   });
 
   describe('toString', () => {
+    const userId = 1;
     it('should return formatted string with event name and ISO date', () => {
       // Arrange
       const context = {};
       const customDate = new Date('2026-06-13T12:00:00.000Z');
-      const event = new DefaultEvent(context, 'id', customDate);
+      const event = new DefaultEvent(userId, context, 'id', customDate);
 
       // Act
       const result = event.toString();
 
       // Assert
-      expect(result).toBe('[DEFAULT] occured at 2026-06-13T12:00:00.000Z');
+      expect(result).toBe(`[DEFAULT] occured at 2026-06-13T12:00:00.000Z for User(id): 1`);
     });
   });
 });

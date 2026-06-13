@@ -10,7 +10,7 @@ export class DefaultEvent {
   ) {}
 
   toString() {
-    return `[${BaseEvents.DEFAULT}] occured at ${this.occurredAt.toISOString()} for User(id): ${this.userId} `;
+    return `[${BaseEvents.DEFAULT}] occured at ${this.occurredAt.toISOString()} for User(id): ${this.userId}`;
   }
 }
 
