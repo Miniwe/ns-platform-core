@@ -10,8 +10,8 @@ export const RoleNameSchema = z.string().min(1).describe('Unique system role nam
 export const RoleSchema = z
   .object({
     name: RoleNameSchema,
-    description: z.string().default('').describe('Human-readable role description'),
-    permissions: z.array(PermissionSchema).default([]).describe('Role permissions'),
+    description: z.string().default('').describe('Human-readable role description').optional(),
+    permissions: z.array(PermissionSchema).default([]).describe('Role permissions').optional(),
   })
   .describe('Resolved role');
 
