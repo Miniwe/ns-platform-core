@@ -16,10 +16,22 @@ export class OwnerGuard implements CanActivate {
       params?: Record<string, string | undefined>;
     }>();
 
-    const currentUserId = String(request.user?.id ?? '');
-    const targetUserId = String(request.params?.[this.paramName] ?? '');
+    const currentUserId = request.user?.id;
 
-    if (!currentUserId || !targetUserId || currentUserId !== targetUserId) {
+    if (!currentUserId) {
+      throw new ForbiddenException('Пользователь не аутентифицирован');
+    }
+
+    const targetParam = request.params?.[this.paramName];
+
+    // Если параметра нет в URL — значит эндпоинт работает с "собственным" ресурсом
+    // (например /users/profile). Разрешаем — JWT уже верифицирован.
+    if (targetParam === undefined || targetParam === null || targetParam === '') {
+      return true;
+    }
+
+    // Есть параметр — проверяем владение
+    if (String(currentUserId) !== String(targetParam)) {
       throw new ForbiddenException('У вас нет доступа к чужому ресурсу');
     }
 

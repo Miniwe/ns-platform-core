@@ -3,16 +3,13 @@ import { EntityManager } from 'typeorm';
 import type { ModuleMetadata, Type } from '@nestjs/common';
 import type { SignOptions } from 'jsonwebtoken';
 
-export interface AuthUserLike {
-  id: number;
-  uuid: string;
+export interface AuthUserLike extends RequestUser {
   email?: string;
   username?: string;
   password?: string;
   refreshToken?: string;
   verificationToken?: string;
   isVerified?: boolean;
-  roles?: Array<{ name: string }>;
 }
 
 export interface AuthUsersServicePort<TUser extends AuthUserLike = AuthUserLike> {
@@ -32,8 +29,10 @@ export interface AuthModuleOptions<TUser extends AuthUserLike = AuthUserLike> {
   global?: boolean;
 }
 
-export interface AuthModuleAsyncOptions<TUser extends AuthUserLike = AuthUserLike>
-  extends Pick<ModuleMetadata, 'imports'> {
+export interface AuthModuleAsyncOptions<TUser extends AuthUserLike = AuthUserLike> extends Pick<
+  ModuleMetadata,
+  'imports'
+> {
   inject?: any[];
   useFactory: (...args: any[]) => Promise<AuthModuleOptions<TUser>> | AuthModuleOptions<TUser>;
   global?: boolean;

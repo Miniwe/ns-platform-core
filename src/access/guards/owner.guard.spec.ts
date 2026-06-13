@@ -29,12 +29,6 @@ describe('OwnerGuard', () => {
     );
   });
 
-  it('должен бросать ForbiddenException, если params.id отсутствует', () => {
-    const guard = new OwnerGuard();
-
-    expect(() => guard.canActivate(makeContext(42, {}))).toThrow(ForbiddenException);
-  });
-
   it('должен бросать ForbiddenException, если id не совпадают', () => {
     const guard = new OwnerGuard();
 

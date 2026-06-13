@@ -3,6 +3,7 @@ export * from './auth';
 export * from './config';
 export * from './context';
 export * from './database';
+export * from './events';
 export * from './filters';
 export * from './guards';
 export * from './queues';
