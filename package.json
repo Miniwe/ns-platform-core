@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.1.30",
+  "version": "1.1.31",
   "devbuild": "141",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
@@ -116,6 +116,7 @@
     "docs": "typedoc",
     "knip": "npx knip",
     "prepublishOnly": "npm run cleanPrePublish && npm install && npm run lint && npm run test:dependencies && npm run test:all && npm run build && npm pack && rm miniwe-ns-platform-core-*.tgz",
+    "prepare": "husky",
     "husky": "husky install"
   },
   "peerDependencies": {

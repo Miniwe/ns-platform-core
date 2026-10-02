@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname "$0")/_/husky.sh"
-
 # 1. Проверяем, что мы НЕ на GitHub Actions
 if [ "$GITHUB_ACTIONS" = "true" ]; then
   echo "Скрипт пропущен: запуск в GitHub Actions"
