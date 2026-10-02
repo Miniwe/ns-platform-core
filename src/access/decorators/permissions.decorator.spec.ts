@@ -1,6 +1,6 @@
 import 'reflect-metadata';
-import { PERMISSIONS_KEY } from '@/security';
-import { RequirePermissions } from './permissions.decorator';
+import { ANY_PERMISSIONS_KEY, PERMISSIONS_KEY } from '@/security';
+import { RequireAnyPermission, RequirePermissions } from './permissions.decorator';
 
 describe('RequirePermissions', () => {
   class TestController {
@@ -27,5 +27,38 @@ describe('RequirePermissions', () => {
     expect(() =>
       RequirePermissions({ resource: '', action: 'read' } as any),
     ).toThrow();
+  });
+});
+describe('RequireAnyPermission', () => {
+  class TestController {
+    @RequireAnyPermission({ resource: 'USERS', action: 'EXPORT' })
+    static secured() {}
+  }
+
+  it('должен выставлять metadata под отдельным ключом', () => {
+    expect(Reflect.getMetadata(ANY_PERMISSIONS_KEY, TestController.secured)).toEqual([
+      { resource: 'users', action: 'export' },
+    ]);
+  });
+
+  it('не должен трогать ключ RequirePermissions', () => {
+    expect(Reflect.getMetadata(PERMISSIONS_KEY, TestController.secured)).toBeUndefined();
+  });
+
+  it('должен бросать ошибку при пустом наборе', () => {
+    expect(() => RequireAnyPermission()).toThrow();
+  });
+});
+
+describe('Нормализация в RequirePermissions', () => {
+  class CaseController {
+    @RequirePermissions({ resource: ' ROLES ', action: 'Create' })
+    static secured() {}
+  }
+
+  it('должен приводить права к нижнему регистру', () => {
+    expect(Reflect.getMetadata(PERMISSIONS_KEY, CaseController.secured)).toEqual([
+      { resource: 'roles', action: 'create' },
+    ]);
   });
 });
