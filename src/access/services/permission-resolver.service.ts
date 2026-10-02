@@ -1,4 +1,5 @@
 import { Inject, Injectable, Optional } from '@nestjs/common';
+import { ModuleRef } from '@nestjs/core';
 
 import {
   type Permission,
@@ -27,19 +28,50 @@ import type { PermissionSource } from '../interfaces';
  *
  * Если источник прав не зарегистрирован (пакет используется без модуля
  * пользователей), сервис откатывается на права из `request.user.roles`.
+ *
+ * Источник ищется лениво, через `ModuleRef` без ограничения областью: модуль
+ * доступа глобальный, и импортировать в него модуль пользователей нельзя —
+ * получается встречный импорт, на котором контейнер Nest повисает при
+ * инициализации. Поэтому источник регистрируется там, где он живёт, под
+ * токеном `PERMISSION_SOURCE`, а находится отсюда.
  */
 @Injectable()
 export class PermissionResolverService {
+  private resolvedSource?: PermissionSource | null;
+
   constructor(
     @Optional()
     @Inject(PERMISSION_SOURCE)
-    private readonly source?: PermissionSource,
+    private readonly injectedSource?: PermissionSource,
     @Optional()
     private readonly cache?: AdvancedCacheService,
     @Optional()
     @Inject(ACCESS_OPTIONS)
     private readonly options?: AccessOptions,
+    @Optional()
+    private readonly moduleRef?: ModuleRef,
   ) {}
+
+  /** Источник прав: внедрённый напрямую либо найденный по всему контейнеру. */
+  private get source(): PermissionSource | undefined {
+    if (this.injectedSource) {
+      return this.injectedSource;
+    }
+
+    if (this.resolvedSource !== undefined) {
+      return this.resolvedSource ?? undefined;
+    }
+
+    try {
+      this.resolvedSource =
+        this.moduleRef?.get<PermissionSource>(PERMISSION_SOURCE, { strict: false }) ?? null;
+    } catch {
+      // Источник не зарегистрирован — работаем на правах из токена.
+      this.resolvedSource = null;
+    }
+
+    return this.resolvedSource ?? undefined;
+  }
 
   private get ttl(): number {
     return this.options?.permissionCacheTtlMs ?? DEFAULT_PERMISSION_CACHE_TTL_MS;
@@ -53,7 +85,9 @@ export class PermissionResolverService {
   }
 
   async resolve(user: PermissionCarrier): Promise<Permission[]> {
-    if (!this.source) {
+    const source = this.source;
+
+    if (!source) {
       return this.fromCarrier(user);
     }
 
@@ -64,7 +98,7 @@ export class PermissionResolverService {
       return cached;
     }
 
-    const loaded = await this.source.getUserPermissions(user.id);
+    const loaded = await source.getUserPermissions(user.id);
     const permissions = uniquePermissions(
       loaded.map((permission) => PermissionSchema.parse(permission)),
     );

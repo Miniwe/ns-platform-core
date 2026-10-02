@@ -104,3 +104,58 @@ describe('PermissionResolverService', () => {
     expect(source.getUserPermissions).toHaveBeenCalledTimes(2);
   });
 });
+
+describe('PermissionResolverService — ленивый поиск источника', () => {
+  const user = { id: 3, roles: [] };
+
+  it('находит источник через ModuleRef, когда он не внедрён напрямую', async () => {
+    const source = { getUserPermissions: jest.fn(async () => [{ resource: 'a', action: 'b' }]) };
+    const moduleRef = { get: jest.fn(() => source) };
+
+    const service = new PermissionResolverService(
+      undefined,
+      undefined,
+      undefined,
+      moduleRef as never,
+    );
+
+    await expect(service.resolve(user)).resolves.toEqual([{ resource: 'a', action: 'b' }]);
+    expect(moduleRef.get).toHaveBeenCalledWith(expect.anything(), { strict: false });
+  });
+
+  it('ищет источник один раз и запоминает результат', async () => {
+    const source = { getUserPermissions: jest.fn(async () => []) };
+    const moduleRef = { get: jest.fn(() => source) };
+
+    const service = new PermissionResolverService(
+      undefined,
+      undefined,
+      undefined,
+      moduleRef as never,
+    );
+
+    await service.resolve(user);
+    await service.resolve(user);
+
+    expect(moduleRef.get).toHaveBeenCalledTimes(1);
+  });
+
+  it('откатывается на права из токена, если источник не зарегистрирован', async () => {
+    const moduleRef = {
+      get: jest.fn(() => {
+        throw new Error('not found');
+      }),
+    };
+
+    const service = new PermissionResolverService(
+      undefined,
+      undefined,
+      undefined,
+      moduleRef as never,
+    );
+
+    await expect(
+      service.resolve({ id: 1, roles: [{ name: 'A', permissions: [{ resource: 'x', action: 'y' }] }] }),
+    ).resolves.toEqual([{ resource: 'x', action: 'y' }]);
+  });
+});
