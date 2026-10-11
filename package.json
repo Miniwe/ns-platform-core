@@ -1,6 +1,6 @@
 {
   "name": "@miniwe/ns-platform-core",
-  "version": "1.1.31",
+  "version": "1.1.32",
   "devbuild": "141",
   "description": "Reusable NestJS platform core for backend services",
   "keywords": [
@@ -75,6 +75,30 @@
       "types": "./dist/services/index.d.ts",
       "require": "./dist/services/index.js"
     },
+    "./services/error-handling": {
+      "types": "./dist/services/error-handling/index.d.ts",
+      "require": "./dist/services/error-handling/index.js"
+    },
+    "./services/base-service": {
+      "types": "./dist/services/base-service/index.d.ts",
+      "require": "./dist/services/base-service/index.js"
+    },
+    "./services/advanced-cache": {
+      "types": "./dist/services/advanced-cache/index.d.ts",
+      "require": "./dist/services/advanced-cache/index.js"
+    },
+    "./services/advanced-throttle": {
+      "types": "./dist/services/advanced-throttle/index.d.ts",
+      "require": "./dist/services/advanced-throttle/index.js"
+    },
+    "./services/metadata-explorer": {
+      "types": "./dist/services/metadata-explorer/index.d.ts",
+      "require": "./dist/services/metadata-explorer/index.js"
+    },
+    "./services/transaction": {
+      "types": "./dist/services/transaction/index.d.ts",
+      "require": "./dist/services/transaction/index.js"
+    },
     "./transformers": {
       "types": "./dist/transformers/index.d.ts",
       "require": "./dist/transformers/index.js"
@@ -87,6 +111,7 @@
       "types": "./dist/utils/index.d.ts",
       "require": "./dist/utils/index.js"
     },
+    "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.js"
@@ -142,6 +167,56 @@
     "rxjs": "^7.8.0",
     "typeorm": "^1.0.0",
     "zod": "^4.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@keyv/redis": {
+      "optional": true
+    },
+    "@nestjs/bullmq": {
+      "optional": true
+    },
+    "@nestjs/cache-manager": {
+      "optional": true
+    },
+    "@nestjs/event-emitter": {
+      "optional": true
+    },
+    "@nestjs/jwt": {
+      "optional": true
+    },
+    "@nestjs/passport": {
+      "optional": true
+    },
+    "@nestjs/swagger": {
+      "optional": true
+    },
+    "@nestjs/typeorm": {
+      "optional": true
+    },
+    "bullmq": {
+      "optional": true
+    },
+    "cache-manager": {
+      "optional": true
+    },
+    "dataloader": {
+      "optional": true
+    },
+    "decimal.js": {
+      "optional": true
+    },
+    "fastify": {
+      "optional": true
+    },
+    "ioredis": {
+      "optional": true
+    },
+    "nestjs-zod": {
+      "optional": true
+    },
+    "typeorm": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
