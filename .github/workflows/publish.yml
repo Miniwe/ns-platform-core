@@ -44,6 +44,14 @@ jobs:
           npm run build
 
       - name: Publish to GitHub Packages
-        run: npm publish
+        # --ignore-scripts: без него npm publish зовёт prepublishOnly,
+        # а тот начинается с rimraf package-lock.json + node_modules и
+        # npm install набело. Пакет держит decimal.js, @nestjs/passport
+        # и ещё дюжину зависимостей как optional peerDependencies — npm
+        # ci (шаг выше) ставит их по lock-файлу, а install без лока их
+        # не трогает вовсе. test:all внутри prepublishOnly падает на
+        # «Cannot find module». Проверки и так уже прошли этим же job'ом
+        # строками выше — повторный прогон не нужен.
+        run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
